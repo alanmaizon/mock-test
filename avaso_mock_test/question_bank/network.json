@@ -11,9 +11,13 @@
       "D": "User is on the wrong VLAN"
     },
     "correct": "B",
-    "explanation": "169.254.x.x is APIPA (Automatic Private IP Addressing) — Windows assigns this when DHCP fails. Without a real IP, the PC has no gateway or DNS configured, so it cannot reach anything beyond the local link. First step: check physical connection and DHCP server availability.",
+    "explanation": "169.254.x.x is APIPA (Automatic Private IP Addressing) \u2014 Windows assigns this when DHCP fails. Without a real IP, the PC has no gateway or DNS configured, so it cannot reach anything beyond the local link. First step: check physical connection and DHCP server availability.",
     "topic": "DHCP / APIPA",
-    "tags": ["dhcp", "apipa", "ip-addressing"]
+    "tags": [
+      "dhcp",
+      "apipa",
+      "ip-addressing"
+    ]
   },
   {
     "id": "net_002",
@@ -21,15 +25,20 @@
     "difficulty": "easy",
     "question": "Which OSI layer is responsible for logical addressing (IP addresses) and routing?",
     "options": {
-      "A": "Layer 2 — Data Link",
-      "B": "Layer 3 — Network",
-      "C": "Layer 4 — Transport",
-      "D": "Layer 5 — Session"
+      "A": "Layer 2 \u2014 Data Link",
+      "B": "Layer 3 \u2014 Network",
+      "C": "Layer 4 \u2014 Transport",
+      "D": "Layer 5 \u2014 Session"
     },
     "correct": "B",
     "explanation": "Layer 3 (Network) handles IP addressing and routing. Routers operate at Layer 3. Layer 2 (Data Link) handles MAC addresses and switches. Layer 4 (Transport) handles TCP/UDP ports and end-to-end reliability. Layer 5 (Session) manages sessions/connections between applications.",
     "topic": "OSI model",
-    "tags": ["osi", "layer3", "routing", "ip"]
+    "tags": [
+      "osi",
+      "layer3",
+      "routing",
+      "ip"
+    ]
   },
   {
     "id": "net_003",
@@ -45,7 +54,12 @@
     "correct": "B",
     "explanation": "Ping by IP works = Layer 3 is fine. Failure by hostname = name resolution broken. Empty DNS in ipconfig means DHCP isn't providing DNS (or DHCP is failing). Fix: manually set DNS (e.g. 8.8.8.8) or correct the DHCP scope's DNS option (DHCP Option 6). chkdsk doesn't affect DNS; the hosts file is separate.",
     "topic": "DNS",
-    "tags": ["dns", "name-resolution", "dhcp", "ipconfig"]
+    "tags": [
+      "dns",
+      "name-resolution",
+      "dhcp",
+      "ipconfig"
+    ]
   },
   {
     "id": "net_004",
@@ -61,7 +75,11 @@
     "correct": "C",
     "explanation": "RDP uses TCP port 3389 by default. Port 22 is SSH. Port 443 is HTTPS. Port 445 is SMB (Windows file sharing). Knowing common port numbers is essential for firewall troubleshooting.",
     "topic": "Common ports",
-    "tags": ["ports", "rdp", "tcp"]
+    "tags": [
+      "ports",
+      "rdp",
+      "tcp"
+    ]
   },
   {
     "id": "net_005",
@@ -72,12 +90,16 @@
       "A": "TCP is faster; UDP is more reliable",
       "B": "TCP provides connection-oriented, reliable delivery with acknowledgements; UDP is connectionless and has no guaranteed delivery",
       "C": "TCP is used for video streaming; UDP is used for web browsing",
-      "D": "They operate at different OSI layers — TCP at Layer 3, UDP at Layer 4"
+      "D": "They operate at different OSI layers \u2014 TCP at Layer 3, UDP at Layer 4"
     },
     "correct": "B",
-    "explanation": "TCP (Transmission Control Protocol) establishes a connection (3-way handshake), guarantees delivery via acknowledgements, and retransmits lost packets — reliable but slower. UDP (User Datagram Protocol) is connectionless with no delivery guarantee — faster, used for DNS, VoIP, video streaming where latency matters more than perfection.",
+    "explanation": "TCP (Transmission Control Protocol) establishes a connection (3-way handshake), guarantees delivery via acknowledgements, and retransmits lost packets \u2014 reliable but slower. UDP (User Datagram Protocol) is connectionless with no delivery guarantee \u2014 faster, used for DNS, VoIP, video streaming where latency matters more than perfection.",
     "topic": "TCP vs UDP",
-    "tags": ["tcp", "udp", "transport-layer"]
+    "tags": [
+      "tcp",
+      "udp",
+      "transport-layer"
+    ]
   },
   {
     "id": "net_006",
@@ -91,9 +113,14 @@
       "D": "The default gateway is not configured"
     },
     "correct": "B",
-    "explanation": "tracert sends ICMP TTL-exceeded packets. A * * * at hop 4 means either: (a) that router drops ICMP (common on ISP routers — not a real outage), or (b) the path genuinely fails there. If subsequent hops also timeout, connectivity is broken beyond hop 4. If only that hop times out but later hops respond, the router just blocks ICMP.",
+    "explanation": "tracert sends ICMP TTL-exceeded packets. A * * * at hop 4 means either: (a) that router drops ICMP (common on ISP routers \u2014 not a real outage), or (b) the path genuinely fails there. If subsequent hops also timeout, connectivity is broken beyond hop 4. If only that hop times out but later hops respond, the router just blocks ICMP.",
     "topic": "Networking commands",
-    "tags": ["tracert", "icmp", "troubleshooting", "connectivity"]
+    "tags": [
+      "tracert",
+      "icmp",
+      "troubleshooting",
+      "connectivity"
+    ]
   },
   {
     "id": "net_007",
@@ -101,17 +128,20 @@
     "difficulty": "easy",
     "question": "Which of the following is a private IP address range per RFC 1918?",
     "options": {
-      "A": "172.32.0.0 – 172.63.255.255",
-      "B": "192.168.0.0 – 192.168.255.255",
-      "C": "10.0.0.0 – 10.255.255.0",
-      "D": "100.64.0.0 – 100.127.255.255"
+      "A": "172.32.0.0 \u2013 172.63.255.255",
+      "B": "192.168.0.0 \u2013 192.168.255.255",
+      "C": "10.0.0.0 \u2013 10.255.255.0",
+      "D": "100.64.0.0 \u2013 100.127.255.255"
     },
     "correct": "B",
-    "explanation": "RFC 1918 private ranges: 10.0.0.0/8 (10.0.0.0–10.255.255.255), 172.16.0.0/12 (172.16.0.0–172.31.255.255), 192.168.0.0/16 (192.168.0.0–192.168.255.255). Option A is partly wrong (172.32+ is public). Option C misses the last octet. 100.64/10 is CGNAT — not RFC 1918.",
-    "correct": "B",
-    "explanation": "RFC 1918 defines three private ranges: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. 192.168.0.0–192.168.255.255 is the correct full range for the /16 block. These addresses are not routed on the public internet.",
+    "explanation": "RFC 1918 defines three private ranges: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. 192.168.0.0\u2013192.168.255.255 is the correct full range for the /16 block. These addresses are not routed on the public internet.",
     "topic": "IP addressing",
-    "tags": ["ip-addressing", "rfc1918", "private-ip", "subnetting"]
+    "tags": [
+      "ip-addressing",
+      "rfc1918",
+      "private-ip",
+      "subnetting"
+    ]
   },
   {
     "id": "net_008",
@@ -125,9 +155,13 @@
       "D": "netstat -an"
     },
     "correct": "C",
-    "explanation": "arp -a shows the ARP (Address Resolution Protocol) cache — the local table mapping IPv4 addresses to MAC addresses. ipconfig /displaydns shows the DNS resolver cache. nslookup queries DNS servers. netstat -an shows active TCP/UDP connections and listening ports.",
+    "explanation": "arp -a shows the ARP (Address Resolution Protocol) cache \u2014 the local table mapping IPv4 addresses to MAC addresses. ipconfig /displaydns shows the DNS resolver cache. nslookup queries DNS servers. netstat -an shows active TCP/UDP connections and listening ports.",
     "topic": "Networking commands",
-    "tags": ["arp", "mac-address", "networking-commands"]
+    "tags": [
+      "arp",
+      "mac-address",
+      "networking-commands"
+    ]
   },
   {
     "id": "net_009",
@@ -141,9 +175,14 @@
       "D": "The server's NIC is faulty"
     },
     "correct": "C",
-    "explanation": "VLANs are separate broadcast domains. Traffic between VLANs must be routed at Layer 3 — either by a physical router (router-on-a-stick with trunk port) or a Layer 3 switch with IP routing and SVIs configured. A Layer 2 switch alone cannot forward traffic between VLANs.",
+    "explanation": "VLANs are separate broadcast domains. Traffic between VLANs must be routed at Layer 3 \u2014 either by a physical router (router-on-a-stick with trunk port) or a Layer 3 switch with IP routing and SVIs configured. A Layer 2 switch alone cannot forward traffic between VLANs.",
     "topic": "VLANs / Routing",
-    "tags": ["vlan", "inter-vlan-routing", "layer3", "switch"]
+    "tags": [
+      "vlan",
+      "inter-vlan-routing",
+      "layer3",
+      "switch"
+    ]
   },
   {
     "id": "net_010",
@@ -159,7 +198,11 @@
     "correct": "B",
     "explanation": "nslookup is a DNS query tool. It asks the configured DNS server to resolve the given hostname to an IP. Useful for diagnosing DNS issues: if nslookup resolves but the browser fails, the problem is above DNS. ping checks ICMP reachability; tracert traces the path.",
     "topic": "DNS",
-    "tags": ["dns", "nslookup", "name-resolution"]
+    "tags": [
+      "dns",
+      "nslookup",
+      "name-resolution"
+    ]
   },
   {
     "id": "net_011",
@@ -175,7 +218,12 @@
     "correct": "B",
     "explanation": "DNS uses port 53 (both UDP for standard queries and TCP for zone transfers or responses >512 bytes). Port 25 is SMTP. Port 80 is HTTP. Port 110 is POP3.",
     "topic": "Common ports",
-    "tags": ["dns", "ports", "udp", "tcp"]
+    "tags": [
+      "dns",
+      "ports",
+      "udp",
+      "tcp"
+    ]
   },
   {
     "id": "net_012",
@@ -183,21 +231,25 @@
     "difficulty": "medium",
     "question": "What is the loopback address in IPv4, and what is it used for?",
     "options": {
-      "A": "0.0.0.0 — the default route placeholder",
-      "B": "255.255.255.255 — limited broadcast",
-      "C": "127.0.0.1 — used to test the local machine's TCP/IP stack without sending traffic to the network",
-      "D": "169.254.0.1 — the APIPA gateway"
+      "A": "0.0.0.0 \u2014 the default route placeholder",
+      "B": "255.255.255.255 \u2014 limited broadcast",
+      "C": "127.0.0.1 \u2014 used to test the local machine's TCP/IP stack without sending traffic to the network",
+      "D": "169.254.0.1 \u2014 the APIPA gateway"
     },
     "correct": "C",
     "explanation": "127.0.0.1 (loopback) is a virtual address that points back to the local host. Pinging 127.0.0.1 tests whether the local IP stack is functional without any network involvement. The entire 127.0.0.0/8 range is reserved for loopback, but 127.0.0.1 is the standard address used.",
     "topic": "IP addressing",
-    "tags": ["loopback", "ipv4", "troubleshooting"]
+    "tags": [
+      "loopback",
+      "ipv4",
+      "troubleshooting"
+    ]
   },
   {
     "id": "net_013",
     "section": "network",
     "difficulty": "hard",
-    "question": "A user reports intermittent connectivity — browsing works for a few minutes then stops until they reconnect. Which command would best help identify whether the default gateway is consistently reachable?",
+    "question": "A user reports intermittent connectivity \u2014 browsing works for a few minutes then stops until they reconnect. Which command would best help identify whether the default gateway is consistently reachable?",
     "options": {
       "A": "ping -t [gateway IP]",
       "B": "ipconfig /renew",
@@ -207,6 +259,287 @@
     "correct": "A",
     "explanation": "ping -t sends continuous ICMP echo requests until stopped (Ctrl+C). This lets you observe whether packet loss to the gateway correlates with the outage. ipconfig /renew refreshes DHCP but won't show intermittent loss. netstat -rn shows the routing table. tracert is a one-shot tool, not continuous.",
     "topic": "Networking commands",
-    "tags": ["ping", "gateway", "intermittent", "troubleshooting"]
+    "tags": [
+      "ping",
+      "gateway",
+      "intermittent",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "net_014",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "A workstation has IP 192.168.10.55 with subnet mask 255.255.255.0. Which of the following is on the same subnet?",
+    "options": {
+      "A": "192.168.11.1",
+      "B": "192.168.10.200",
+      "C": "192.168.10.0",
+      "D": "10.0.0.55"
+    },
+    "correct": "B",
+    "explanation": "A /24 mask (255.255.255.0) means the network portion is the first 3 octets: 192.168.10.x. Any address from 192.168.10.1\u2013192.168.10.254 is on the same subnet. 192.168.10.0 is the network address (not a host). 192.168.11.1 is a different subnet. 10.0.0.55 is a different network entirely.",
+    "topic": "Subnetting",
+    "tags": [
+      "subnetting",
+      "subnet-mask",
+      "ip-addressing",
+      "same-subnet"
+    ]
+  },
+  {
+    "id": "net_015",
+    "section": "network",
+    "difficulty": "hard",
+    "question": "A host has IP 10.0.0.130/26. What is its subnet, and how many usable hosts does /26 provide?",
+    "options": {
+      "A": "Subnet: 10.0.0.128, usable hosts: 62",
+      "B": "Subnet: 10.0.0.0, usable hosts: 126",
+      "C": "Subnet: 10.0.0.128, usable hosts: 64",
+      "D": "Subnet: 10.0.0.192, usable hosts: 62"
+    },
+    "correct": "A",
+    "explanation": "/26 = 255.255.255.192 (last octet increments by 64: .0, .64, .128, .192). 10.0.0.130 falls in the .128 block (128\u2013191). Network: 10.0.0.128, Broadcast: 10.0.0.191. Usable hosts: 64 - 2 = 62. /26 gives 2^6=64 addresses per subnet, minus network and broadcast.",
+    "topic": "Subnetting",
+    "tags": [
+      "subnetting",
+      "cidr",
+      "slash-notation",
+      "hosts"
+    ]
+  },
+  {
+    "id": "net_016",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of NAT (Network Address Translation)?",
+    "options": {
+      "A": "Encrypt traffic between the LAN and the internet",
+      "B": "Allow multiple devices on a private network to share a single public IP address",
+      "C": "Assign IP addresses automatically like DHCP",
+      "D": "Filter malicious traffic at the network perimeter"
+    },
+    "correct": "B",
+    "explanation": "NAT (usually PAT \u2014 Port Address Translation) maps many private IPs to one public IP by tracking connections via port numbers. This conserves public IPv4 addresses and provides implicit security (external hosts cannot initiate connections to private IPs). NAT is performed by the router/firewall. It does not encrypt traffic \u2014 that is done by VPN/TLS.",
+    "topic": "NAT",
+    "tags": [
+      "nat",
+      "pat",
+      "private-ip",
+      "public-ip",
+      "router"
+    ]
+  },
+  {
+    "id": "net_017",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "Which ports are used by SMTP, POP3, and IMAP (standard/unencrypted) respectively?",
+    "options": {
+      "A": "SMTP: 25, POP3: 110, IMAP: 143",
+      "B": "SMTP: 25, POP3: 143, IMAP: 110",
+      "C": "SMTP: 465, POP3: 110, IMAP: 993",
+      "D": "SMTP: 587, POP3: 995, IMAP: 993"
+    },
+    "correct": "A",
+    "explanation": "Standard ports: SMTP 25 (server-to-server); POP3 110; IMAP 143. Secure variants: SMTP submission 587 (TLS), SMTP SSL 465; POP3S 995; IMAPS 993. For troubleshooting email flow or configuring a mail client, knowing these ports is essential \u2014 especially SMTP 25 (often blocked by ISPs to prevent spam) vs 587.",
+    "topic": "Common ports",
+    "tags": [
+      "smtp",
+      "pop3",
+      "imap",
+      "ports",
+      "email"
+    ]
+  },
+  {
+    "id": "net_018",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "A user can access websites by IP but not by name, and nslookup times out. ipconfig /all shows DNS as 192.168.1.1 (the router). What should you try first?",
+    "options": {
+      "A": "Replace the router",
+      "B": "Flush the DNS cache with ipconfig /flushdns",
+      "C": "Set the DNS server manually to a known-working server (e.g. 8.8.8.8) to determine if the router DNS is the problem",
+      "D": "Reinstall the network adapter driver"
+    },
+    "correct": "C",
+    "explanation": "When nslookup times out and the DNS is the router (acting as forwarder), the router DNS may be misconfigured or overloaded. Temporarily setting DNS to 8.8.8.8 or 1.1.1.1 isolates whether the issue is the router or something deeper. If DNS then works, the router DNS config is the fault. ipconfig /flushdns only clears cache \u2014 it won't help if the server itself is unreachable.",
+    "topic": "DNS",
+    "tags": [
+      "dns",
+      "troubleshooting",
+      "router",
+      "nslookup"
+    ]
+  },
+  {
+    "id": "net_019",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "What type of DNS record maps a hostname to an IPv4 address?",
+    "options": {
+      "A": "MX record",
+      "B": "CNAME record",
+      "C": "A record",
+      "D": "PTR record"
+    },
+    "correct": "C",
+    "explanation": "A record (Address record) maps a hostname \u2192 IPv4 address. AAAA record maps hostname \u2192 IPv6 address. CNAME (Canonical Name) creates an alias pointing to another hostname. MX (Mail Exchanger) specifies the mail server for a domain. PTR (Pointer) is the reverse: IP \u2192 hostname, used in reverse DNS lookups.",
+    "topic": "DNS records",
+    "tags": [
+      "dns",
+      "a-record",
+      "dns-records",
+      "hostname"
+    ]
+  },
+  {
+    "id": "net_020",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "A switch port shows high collision counts. What is the most likely cause?",
+    "options": {
+      "A": "The switch port is in the wrong VLAN",
+      "B": "A duplex mismatch \u2014 one side is set to half-duplex while the other is full-duplex",
+      "C": "The cable is too long",
+      "D": "The switch needs a firmware upgrade"
+    },
+    "correct": "B",
+    "explanation": "Duplex mismatch occurs when one end of a link negotiates full-duplex and the other ends up in half-duplex (e.g. auto-negotiation failure). The half-duplex side uses CSMA/CD and detects collisions; the full-duplex side does not. This causes high collision counts, late collisions, and poor performance. Fix: set both sides to the same duplex/speed (preferably auto/auto or both hard-set).",
+    "topic": "Ethernet / switching",
+    "tags": [
+      "duplex",
+      "collision",
+      "switch",
+      "ethernet",
+      "half-duplex"
+    ]
+  },
+  {
+    "id": "net_021",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "Which command on Windows shows all active TCP connections and the ports the local machine is listening on?",
+    "options": {
+      "A": "arp -a",
+      "B": "ipconfig /all",
+      "C": "netstat -an",
+      "D": "route print"
+    },
+    "correct": "C",
+    "explanation": "netstat -an displays all active TCP/UDP connections (-a) with numeric addresses (-n, no hostname resolution). The state column shows LISTENING (waiting for connections), ESTABLISHED (active connection), TIME_WAIT, etc. Useful for finding which process is using a port (add -b for process name, requires admin). arp -a shows MAC-to-IP mappings; route print shows the routing table.",
+    "topic": "Networking commands",
+    "tags": [
+      "netstat",
+      "ports",
+      "connections",
+      "listening"
+    ]
+  },
+  {
+    "id": "net_022",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "Port 445 is blocked by the firewall on a remote site. Which Windows feature will this impact?",
+    "options": {
+      "A": "Remote Desktop (RDP)",
+      "B": "Web browsing (HTTP/HTTPS)",
+      "C": "File and printer sharing via SMB (mapped drives, shared printers)",
+      "D": "DNS resolution"
+    },
+    "correct": "C",
+    "explanation": "Port 445 is used by SMB (Server Message Block), the protocol for Windows file and printer sharing. Blocking 445 breaks mapped drives (\\server\\share), UNC paths, and shared printers accessed via Windows networking. RDP uses 3389; HTTP 80 / HTTPS 443; DNS 53. Organizations routinely block 445 at internet boundaries to prevent ransomware spread.",
+    "topic": "Common ports",
+    "tags": [
+      "smb",
+      "port-445",
+      "file-sharing",
+      "firewall"
+    ]
+  },
+  {
+    "id": "net_023",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "What is the purpose of the default gateway configured on a workstation?",
+    "options": {
+      "A": "It resolves hostnames to IP addresses",
+      "B": "It is the IP address of the local DNS server",
+      "C": "It is the router's IP that the PC sends traffic to when the destination is outside its own subnet",
+      "D": "It assigns IP addresses to the workstation automatically"
+    },
+    "correct": "C",
+    "explanation": "When a host needs to reach an IP outside its subnet, it cannot deliver the packet directly on the local network. It sends the packet to the default gateway (usually the router's LAN IP) which then routes it toward the destination. Without a default gateway, the PC can only communicate within its own subnet. DHCP provides the gateway address automatically.",
+    "topic": "IP addressing",
+    "tags": [
+      "default-gateway",
+      "routing",
+      "subnet",
+      "router"
+    ]
+  },
+  {
+    "id": "net_024",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "A user's browser is set to use a proxy server, but they cannot reach any websites. ipconfig shows a valid IP and gateway. Pinging 8.8.8.8 succeeds. What is the most likely cause?",
+    "options": {
+      "A": "DNS is not working",
+      "B": "The proxy server address or port in browser settings is incorrect or the proxy is down",
+      "C": "The NIC driver needs updating",
+      "D": "DHCP lease has expired"
+    },
+    "correct": "B",
+    "explanation": "Ping to 8.8.8.8 succeeds \u2192 IP connectivity is fine. Browser fails \u2192 the proxy is the bottleneck. When a browser is configured to use a proxy, all HTTP/HTTPS traffic is directed there. If the proxy IP/port is wrong or the proxy server is down, all browsing fails even though the network is working. Fix: verify proxy settings in browser or system settings, or temporarily bypass the proxy to confirm.",
+    "topic": "Proxy",
+    "tags": [
+      "proxy",
+      "browser",
+      "connectivity",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "net_025",
+    "section": "network",
+    "difficulty": "hard",
+    "question": "What does the IPv6 address fe80::1 represent, and can it be routed across the internet?",
+    "options": {
+      "A": "A global unicast address \u2014 it can be routed across the internet",
+      "B": "A link-local address \u2014 only valid on the local network segment, not routable",
+      "C": "A multicast address used for routing protocols",
+      "D": "A loopback address equivalent to IPv4 127.0.0.1"
+    },
+    "correct": "B",
+    "explanation": "fe80::/10 is the IPv6 link-local range, automatically configured on every IPv6-capable interface. Like APIPA in IPv4, link-local addresses are only valid on the local link \u2014 routers will not forward them. Every device has one. The IPv6 loopback is ::1. Global unicast addresses start with 2000::/3.",
+    "topic": "IPv6",
+    "tags": [
+      "ipv6",
+      "link-local",
+      "fe80",
+      "routing"
+    ]
+  },
+  {
+    "id": "net_026",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "Which command clears the local DNS resolver cache on a Windows PC, useful when a DNS record has changed but the old result is still being returned?",
+    "options": {
+      "A": "ipconfig /release",
+      "B": "ipconfig /flushdns",
+      "C": "nslookup /clear",
+      "D": "netsh winsock reset"
+    },
+    "correct": "B",
+    "explanation": "ipconfig /flushdns purges the DNS resolver cache (both positive and negative cached entries). Useful when a website's IP changes or a mistyped record was cached. ipconfig /release releases the DHCP lease. netsh winsock reset fixes a corrupted Winsock catalog \u2014 a different problem. nslookup has no /clear switch.",
+    "topic": "Networking commands",
+    "tags": [
+      "ipconfig",
+      "flushdns",
+      "dns-cache",
+      "troubleshooting"
+    ]
   }
 ]

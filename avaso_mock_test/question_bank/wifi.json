@@ -13,7 +13,12 @@
     "correct": "B",
     "explanation": "2.4 GHz has only 3 non-overlapping channels (1, 6, 11) and is shared by many devices (microwaves, Bluetooth, neighboring APs). In dense environments, congestion degrades performance. The fix is to move devices to 5 GHz (more channels, less interference) or ensure APs are set to non-overlapping channels.",
     "topic": "2.4 GHz vs 5 GHz",
-    "tags": ["2.4ghz", "congestion", "channels", "interference"]
+    "tags": [
+      "2.4ghz",
+      "congestion",
+      "channels",
+      "interference"
+    ]
   },
   {
     "id": "wifi_002",
@@ -29,7 +34,12 @@
     "correct": "B",
     "explanation": "In the 2.4 GHz band (802.11b/g/n), channels are 5 MHz apart but 22 MHz wide, so only channels 1, 6, and 11 are truly non-overlapping. Using other channels causes co-channel interference with adjacent APs. All 3 APs in a coverage area should each use one of these three channels.",
     "topic": "Wi-Fi channels",
-    "tags": ["2.4ghz", "channels", "interference", "ap-placement"]
+    "tags": [
+      "2.4ghz",
+      "channels",
+      "interference",
+      "ap-placement"
+    ]
   },
   {
     "id": "wifi_003",
@@ -45,7 +55,13 @@
     "correct": "C",
     "explanation": "WEP (Wired Equivalent Privacy) uses RC4 with static keys and has been cryptographically broken since 2001. It can be cracked in minutes with freely available tools. WPA2 (AES/CCMP) remains acceptable; WPA3 is the current standard. WEP should be disabled on any managed network.",
     "topic": "Wi-Fi security",
-    "tags": ["wep", "wpa2", "wpa3", "security", "encryption"]
+    "tags": [
+      "wep",
+      "wpa2",
+      "wpa3",
+      "security",
+      "encryption"
+    ]
   },
   {
     "id": "wifi_004",
@@ -59,9 +75,14 @@
       "D": "Toggle Airplane mode on and off"
     },
     "correct": "B",
-    "explanation": "'Connected but no internet' diagnostic flow: (1) ipconfig — check for a valid IP (not 169.254.x.x); (2) ping default gateway — tests Layer 3 to the router; (3) ping 8.8.8.8 — tests WAN connectivity; (4) nslookup google.com — tests DNS. Each step isolates the failure point. Driver reinstall is a last resort.",
+    "explanation": "'Connected but no internet' diagnostic flow: (1) ipconfig \u2014 check for a valid IP (not 169.254.x.x); (2) ping default gateway \u2014 tests Layer 3 to the router; (3) ping 8.8.8.8 \u2014 tests WAN connectivity; (4) nslookup google.com \u2014 tests DNS. Each step isolates the failure point. Driver reinstall is a last resort.",
     "topic": "Wi-Fi troubleshooting",
-    "tags": ["connected-no-internet", "troubleshooting", "gateway", "dns"]
+    "tags": [
+      "connected-no-internet",
+      "troubleshooting",
+      "gateway",
+      "dns"
+    ]
   },
   {
     "id": "wifi_005",
@@ -77,7 +98,12 @@
     "correct": "B",
     "explanation": "802.11ac (Wi-Fi 5) operates on 5 GHz only, introduced MU-MIMO (Multi-User MIMO) allowing multiple clients simultaneously, and supports up to 3.5 Gbps theoretical. Wi-Fi 4 (802.11n) was the first to support both 2.4/5 GHz. Wi-Fi 6 (802.11ax) adds OFDMA and improved MU-MIMO for dense environments.",
     "topic": "802.11 standards",
-    "tags": ["802.11ac", "wifi5", "mu-mimo", "standards"]
+    "tags": [
+      "802.11ac",
+      "wifi5",
+      "mu-mimo",
+      "standards"
+    ]
   },
   {
     "id": "wifi_006",
@@ -91,9 +117,14 @@
       "D": "Switch the user to 2.4 GHz to improve range"
     },
     "correct": "C",
-    "explanation": "Adding an AP (or a mesh node) in the coverage gap is the correct enterprise solution. Maxing out transmit power can cause co-channel interference with neighboring APs and doesn't help the client's uplink (the client's radio power is fixed). Switching to 2.4 GHz improves range slightly but reduces throughput — a band-aid, not a fix.",
+    "explanation": "Adding an AP (or a mesh node) in the coverage gap is the correct enterprise solution. Maxing out transmit power can cause co-channel interference with neighboring APs and doesn't help the client's uplink (the client's radio power is fixed). Switching to 2.4 GHz improves range slightly but reduces throughput \u2014 a band-aid, not a fix.",
     "topic": "AP placement",
-    "tags": ["signal", "ap-placement", "coverage", "range-extender"]
+    "tags": [
+      "signal",
+      "ap-placement",
+      "coverage",
+      "range-extender"
+    ]
   },
   {
     "id": "wifi_007",
@@ -102,14 +133,19 @@
     "question": "What advantage does WPA3 provide over WPA2 for open (public) Wi-Fi networks?",
     "options": {
       "A": "Faster connection speeds via OFDMA",
-      "B": "OWE (Opportunistic Wireless Encryption) — encrypts traffic even without a password",
+      "B": "OWE (Opportunistic Wireless Encryption) \u2014 encrypts traffic even without a password",
       "C": "Blocks all evil twin attacks using certificate pinning",
       "D": "Replaces the pre-shared key with a SIM card authentication"
     },
     "correct": "B",
-    "explanation": "WPA3 introduces OWE (Enhanced Open) for public networks — each connection uses unique encryption keys even without a password, preventing passive eavesdropping. WPA2 open networks transmit all data in cleartext. OFDMA is a Wi-Fi 6 (802.11ax) PHY feature, not a WPA3 security feature.",
+    "explanation": "WPA3 introduces OWE (Enhanced Open) for public networks \u2014 each connection uses unique encryption keys even without a password, preventing passive eavesdropping. WPA2 open networks transmit all data in cleartext. OFDMA is a Wi-Fi 6 (802.11ax) PHY feature, not a WPA3 security feature.",
     "topic": "Wi-Fi security",
-    "tags": ["wpa3", "owe", "open-wifi", "encryption"]
+    "tags": [
+      "wpa3",
+      "owe",
+      "open-wifi",
+      "encryption"
+    ]
   },
   {
     "id": "wifi_008",
@@ -125,6 +161,161 @@
     "correct": "B",
     "explanation": "Multiple SSIDs on one AP are isolated via VLAN tagging. The 'Employees' SSID maps to the internal VLAN; 'Guest' maps to a guest VLAN that is routed only to the internet (no access to internal resources). The switch trunk port carries both tagged VLANs to the AP. Channel or MAC separation alone provides no security.",
     "topic": "Wi-Fi security",
-    "tags": ["ssid", "vlan", "guest-network", "segmentation"]
+    "tags": [
+      "ssid",
+      "vlan",
+      "guest-network",
+      "segmentation"
+    ]
+  },
+  {
+    "id": "wifi_009",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "A user's laptop supports both 2.4 GHz and 5 GHz but automatically connects to 2.4 GHz even when a 5 GHz SSID with a stronger signal is available. What is the most likely cause?",
+    "options": {
+      "A": "The 5 GHz band is disabled on the access point",
+      "B": "Windows prefers 2.4 GHz because it has lower frequency and better wall penetration",
+      "C": "The preferred network list has an old 2.4 GHz profile with higher priority; Windows connects to it automatically",
+      "D": "The laptop NIC does not support 5 GHz"
+    },
+    "correct": "C",
+    "explanation": "Windows connects to known networks based on the preferred network list (ordered by last-used). If the 2.4 GHz SSID profile is higher in the list, Windows picks it even if 5 GHz is stronger. Fix: delete the 2.4 GHz profile or use band steering on the AP (same SSID for both bands with the AP nudging capable clients to 5 GHz).",
+    "topic": "2.4 GHz vs 5 GHz",
+    "tags": [
+      "band-preference",
+      "2.4ghz",
+      "5ghz",
+      "preferred-network"
+    ]
+  },
+  {
+    "id": "wifi_010",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "What does 802.11ac (Wi-Fi 5) channel bonding to 80 MHz achieve, and what is the tradeoff?",
+    "options": {
+      "A": "Higher throughput by using more spectrum; tradeoff is more interference with neighboring APs using overlapping channels",
+      "B": "Lower latency by splitting traffic across two bands; no tradeoff",
+      "C": "Better range by concentrating power into a narrower beam; tradeoff is reduced speed",
+      "D": "Compatibility with older 802.11g clients; tradeoff is reduced range"
+    },
+    "correct": "A",
+    "explanation": "Channel bonding combines adjacent 20 MHz channels into wider 40/80/160 MHz channels, proportionally increasing throughput. The tradeoff: wider channels consume more of the 5 GHz spectrum, leaving fewer non-overlapping channels for neighboring APs. In dense deployments with many APs, 40 MHz channels are sometimes preferred over 80/160 MHz to reduce co-channel interference.",
+    "topic": "Wi-Fi channels",
+    "tags": [
+      "channel-bonding",
+      "80mhz",
+      "802.11ac",
+      "interference"
+    ]
+  },
+  {
+    "id": "wifi_011",
+    "section": "wifi",
+    "difficulty": "easy",
+    "question": "A user cannot see the company Wi-Fi network in their available networks list, but other users nearby can connect fine. The IT team confirms the network is up. What is one likely cause specific to this user's device?",
+    "options": {
+      "A": "The SSID is hidden \u2014 the user must connect by typing the SSID name manually",
+      "B": "The access point MAC address is blocked",
+      "C": "The NIC is set to only scan 2.4 GHz and the network is 5 GHz only",
+      "D": "Either A or C could be the cause"
+    },
+    "correct": "D",
+    "explanation": "Two plausible device-specific causes: (1) The SSID is hidden (not broadcasting) \u2014 the user's device won't show it in the list, requiring manual entry. (2) The NIC's band/frequency setting is restricted (e.g. locked to 2.4 GHz in adapter settings) and the SSID is 5 GHz only. Other users's devices may handle both. AP MAC blocking would affect the user's connection attempt, not visibility.",
+    "topic": "Wi-Fi troubleshooting",
+    "tags": [
+      "hidden-ssid",
+      "band-mismatch",
+      "5ghz",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "wifi_012",
+    "section": "wifi",
+    "difficulty": "hard",
+    "question": "A company requires Wi-Fi authentication using individual user credentials (not a shared password) and has a RADIUS server. Which security mode should be configured on the APs?",
+    "options": {
+      "A": "WPA2-Personal (PSK)",
+      "B": "WPA2-Enterprise (802.1X / EAP)",
+      "C": "WEP with RADIUS MAC filtering",
+      "D": "WPA3-Personal (SAE)"
+    },
+    "correct": "B",
+    "explanation": "WPA2-Enterprise uses 802.1X for per-user authentication via a RADIUS server (e.g. Microsoft NPS). Each user authenticates with their AD credentials (via PEAP-MSCHAPv2 or EAP-TLS with certificates). WPA2-Personal uses a single shared PSK \u2014 no per-user credentials. This is the standard for corporate Wi-Fi because it ties wireless access to AD accounts and provides per-user audit trails.",
+    "topic": "Wi-Fi security",
+    "tags": [
+      "wpa2-enterprise",
+      "802.1x",
+      "radius",
+      "eap",
+      "corporate-wifi"
+    ]
+  },
+  {
+    "id": "wifi_013",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "A laptop user experiences dropped Wi-Fi connections when walking between floors in the office (two APs, same SSID). What feature ensures smooth handoff between APs?",
+    "options": {
+      "A": "SSID broadcasting",
+      "B": "Band steering",
+      "C": "Fast BSS Transition (802.11r) / seamless roaming",
+      "D": "WPA3 Transition Mode"
+    },
+    "correct": "C",
+    "explanation": "802.11r (Fast BSS Transition) speeds up re-authentication when a client roams between APs by pre-caching the authentication keys. Without it, the full 802.1X/RADIUS handshake repeats on each roam, causing noticeable drops (especially for VoIP). Managed Wi-Fi systems (Cisco, Meraki, Ubiquiti) implement this as \"seamless roaming\" or \"fast roaming.\"",
+    "topic": "Wi-Fi roaming",
+    "tags": [
+      "roaming",
+      "802.11r",
+      "bss-transition",
+      "handoff",
+      "voip"
+    ]
+  },
+  {
+    "id": "wifi_014",
+    "section": "wifi",
+    "difficulty": "easy",
+    "question": "Which 802.11 standard introduced OFDMA (Orthogonal Frequency Division Multiple Access), dramatically improving performance in high-density environments?",
+    "options": {
+      "A": "802.11n (Wi-Fi 4)",
+      "B": "802.11ac (Wi-Fi 5)",
+      "C": "802.11ax (Wi-Fi 6)",
+      "D": "802.11g"
+    },
+    "correct": "C",
+    "explanation": "802.11ax (Wi-Fi 6) introduced OFDMA, which divides channels into smaller sub-channels (RUs \u2014 Resource Units) allowing the AP to simultaneously serve multiple clients. This dramatically improves efficiency in dense environments like offices or airports where many devices are competing. Wi-Fi 5 introduced MU-MIMO but not OFDMA. Wi-Fi 6E extends this to the 6 GHz band.",
+    "topic": "802.11 standards",
+    "tags": [
+      "802.11ax",
+      "wifi6",
+      "ofdma",
+      "high-density",
+      "standards"
+    ]
+  },
+  {
+    "id": "wifi_015",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "A hotel guest connects to the hotel Wi-Fi, gets an IP, but is redirected to a login page when they open a browser. What is this mechanism called?",
+    "options": {
+      "A": "DNS poisoning",
+      "B": "A captive portal",
+      "C": "A transparent proxy",
+      "D": "MAC address filtering"
+    },
+    "correct": "B",
+    "explanation": "A captive portal intercepts HTTP/HTTPS requests from newly connected clients and redirects them to a web-based login/acceptance page before granting full internet access. Used in hotels, airports, cafes. The network assigns a valid IP and DNS but blocks all traffic except to the portal until the user authenticates. HTTPS sites may show a certificate warning because the redirect cannot spoof the cert.",
+    "topic": "Wi-Fi troubleshooting",
+    "tags": [
+      "captive-portal",
+      "guest-wifi",
+      "authentication",
+      "redirect"
+    ]
   }
 ]

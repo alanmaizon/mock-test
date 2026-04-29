@@ -13,7 +13,12 @@
     "correct": "C",
     "explanation": "RAID 5 stripes data and parity across 3+ disks. One disk can fail and data is rebuilt from parity. RAID 0 stripes with no fault tolerance. RAID 1 mirrors two disks (no striping). RAID 10 (1+0) requires minimum 4 disks and combines mirroring and striping. RAID 5 minimum disk count: 3.",
     "topic": "RAID",
-    "tags": ["raid", "raid5", "fault-tolerance", "parity"]
+    "tags": [
+      "raid",
+      "raid5",
+      "fault-tolerance",
+      "parity"
+    ]
   },
   {
     "id": "srv_002",
@@ -29,7 +34,12 @@
     "correct": "B",
     "explanation": "RAID 6 uses double parity (two independent parity blocks), requiring a minimum of 4 disks and tolerating 2 simultaneous disk failures. This makes it safer than RAID 5 for large arrays where a second drive failure during rebuild (URE) is a real risk. Write performance is lower than RAID 5 due to double parity calculation.",
     "topic": "RAID",
-    "tags": ["raid", "raid6", "fault-tolerance", "double-parity"]
+    "tags": [
+      "raid",
+      "raid6",
+      "fault-tolerance",
+      "double-parity"
+    ]
   },
   {
     "id": "srv_003",
@@ -43,9 +53,14 @@
       "D": "Hyper-V"
     },
     "correct": "C",
-    "explanation": "AD DS is the core directory service for Windows domains — it stores user accounts, computer accounts, groups, and policies, and handles Kerberos authentication. DNS is a separate (though tightly integrated) role. DHCP assigns IP addresses. Hyper-V is the virtualization platform.",
+    "explanation": "AD DS is the core directory service for Windows domains \u2014 it stores user accounts, computer accounts, groups, and policies, and handles Kerberos authentication. DNS is a separate (though tightly integrated) role. DHCP assigns IP addresses. Hyper-V is the virtualization platform.",
     "topic": "Windows Server roles",
-    "tags": ["ad-ds", "windows-server", "domain", "authentication"]
+    "tags": [
+      "ad-ds",
+      "windows-server",
+      "domain",
+      "authentication"
+    ]
   },
   {
     "id": "srv_004",
@@ -53,21 +68,26 @@
     "difficulty": "medium",
     "question": "In what order does Group Policy apply? (LSDOU)",
     "options": {
-      "A": "Domain → Site → OU → Local",
-      "B": "Local → Site → Domain → OU",
-      "C": "OU → Domain → Site → Local",
-      "D": "Site → Domain → Local → OU"
+      "A": "Domain \u2192 Site \u2192 OU \u2192 Local",
+      "B": "Local \u2192 Site \u2192 Domain \u2192 OU",
+      "C": "OU \u2192 Domain \u2192 Site \u2192 Local",
+      "D": "Site \u2192 Domain \u2192 Local \u2192 OU"
     },
     "correct": "B",
-    "explanation": "Group Policy applies in LSDOU order: Local → Site → Domain → Organizational Unit. Later policies override earlier ones (OU wins over Domain, Domain over Site, Site over Local), unless 'Enforced' or 'Block Inheritance' modifies this. Child OUs also override parent OUs. This is a fundamental concept for GPO troubleshooting.",
+    "explanation": "Group Policy applies in LSDOU order: Local \u2192 Site \u2192 Domain \u2192 Organizational Unit. Later policies override earlier ones (OU wins over Domain, Domain over Site, Site over Local), unless 'Enforced' or 'Block Inheritance' modifies this. Child OUs also override parent OUs. This is a fundamental concept for GPO troubleshooting.",
     "topic": "Group Policy",
-    "tags": ["gpo", "lsdou", "group-policy", "inheritance"]
+    "tags": [
+      "gpo",
+      "lsdou",
+      "group-policy",
+      "inheritance"
+    ]
   },
   {
     "id": "srv_005",
     "section": "server",
     "difficulty": "medium",
-    "question": "A company performs a full backup every Sunday and incremental backups Monday–Saturday. A restore is needed on Thursday afternoon. Which backups are required?",
+    "question": "A company performs a full backup every Sunday and incremental backups Monday\u2013Saturday. A restore is needed on Thursday afternoon. Which backups are required?",
     "options": {
       "A": "Sunday's full backup only",
       "B": "Sunday's full + Monday's + Tuesday's + Wednesday's incrementals",
@@ -75,9 +95,14 @@
       "D": "Sunday's full + Wednesday's incremental only"
     },
     "correct": "B",
-    "explanation": "Incremental backups store only changes since the last backup (full or incremental). To restore Thursday's state, you need: Sunday full → Monday incremental (changes since Sunday) → Tuesday incremental (changes since Monday) → Wednesday incremental (changes since Tuesday). This is the restore chain. Differential backup would only require Sunday + Wednesday.",
+    "explanation": "Incremental backups store only changes since the last backup (full or incremental). To restore Thursday's state, you need: Sunday full \u2192 Monday incremental (changes since Sunday) \u2192 Tuesday incremental (changes since Monday) \u2192 Wednesday incremental (changes since Tuesday). This is the restore chain. Differential backup would only require Sunday + Wednesday.",
     "topic": "Backup types",
-    "tags": ["backup", "incremental", "restore", "full-backup"]
+    "tags": [
+      "backup",
+      "incremental",
+      "restore",
+      "full-backup"
+    ]
   },
   {
     "id": "srv_006",
@@ -93,7 +118,12 @@
     "correct": "B",
     "explanation": "The 3-2-1 rule: keep 3 copies of data (original + 2 backups), store them on 2 different media types (e.g. local disk and tape/cloud), and keep 1 copy offsite. This protects against hardware failure, media failure, and site disasters. It's the industry-standard baseline for backup strategy.",
     "topic": "Backup types",
-    "tags": ["backup", "3-2-1", "disaster-recovery", "best-practice"]
+    "tags": [
+      "backup",
+      "3-2-1",
+      "disaster-recovery",
+      "best-practice"
+    ]
   },
   {
     "id": "srv_007",
@@ -107,9 +137,14 @@
       "D": "SNMP"
     },
     "correct": "B",
-    "explanation": "iDRAC is Dell's out-of-band management controller — a dedicated hardware chip with its own IP address that allows remote console access, power cycling, hardware monitoring, and BIOS access regardless of whether the OS is running. HP's equivalent is iLO. RDP requires a running OS. WinRM is Windows remote management.",
+    "explanation": "iDRAC is Dell's out-of-band management controller \u2014 a dedicated hardware chip with its own IP address that allows remote console access, power cycling, hardware monitoring, and BIOS access regardless of whether the OS is running. HP's equivalent is iLO. RDP requires a running OS. WinRM is Windows remote management.",
     "topic": "Remote management",
-    "tags": ["idrac", "out-of-band", "server-management", "dell"]
+    "tags": [
+      "idrac",
+      "out-of-band",
+      "server-management",
+      "dell"
+    ]
   },
   {
     "id": "srv_008",
@@ -123,9 +158,14 @@
       "D": "net group /domain"
     },
     "correct": "B",
-    "explanation": "gpresult /r displays the RSoP summary for the current user and machine — which GPOs were applied, which were filtered, and the 'winning' settings. gpresult /h report.html generates a full HTML report. gpupdate applies policy — it doesn't report it. secedit is an older security analysis tool.",
+    "explanation": "gpresult /r displays the RSoP summary for the current user and machine \u2014 which GPOs were applied, which were filtered, and the 'winning' settings. gpresult /h report.html generates a full HTML report. gpupdate applies policy \u2014 it doesn't report it. secedit is an older security analysis tool.",
     "topic": "Group Policy",
-    "tags": ["gpresult", "rsop", "group-policy", "troubleshooting"]
+    "tags": [
+      "gpresult",
+      "rsop",
+      "group-policy",
+      "troubleshooting"
+    ]
   },
   {
     "id": "srv_009",
@@ -139,9 +179,14 @@
       "D": "ECC RAM is required for virtualization support"
     },
     "correct": "B",
-    "explanation": "ECC (Error-Correcting Code) RAM adds extra bits to detect and automatically correct single-bit errors, and detect (but not correct) double-bit errors. This prevents silent data corruption in servers — critical for databases and financial systems. Non-ECC RAM (used in desktops/laptops) passes bit errors silently. ECC is slightly slower and more expensive.",
+    "explanation": "ECC (Error-Correcting Code) RAM adds extra bits to detect and automatically correct single-bit errors, and detect (but not correct) double-bit errors. This prevents silent data corruption in servers \u2014 critical for databases and financial systems. Non-ECC RAM (used in desktops/laptops) passes bit errors silently. ECC is slightly slower and more expensive.",
     "topic": "Server hardware",
-    "tags": ["ecc-ram", "server-hardware", "memory", "error-correction"]
+    "tags": [
+      "ecc-ram",
+      "server-hardware",
+      "memory",
+      "error-correction"
+    ]
   },
   {
     "id": "srv_010",
@@ -149,15 +194,20 @@
     "difficulty": "hard",
     "question": "A server has RAID 5 with 4 disks and one disk fails. During the rebuild, a second disk fails. What happens?",
     "options": {
-      "A": "RAID 5 can handle two failures — rebuild continues",
+      "A": "RAID 5 can handle two failures \u2014 rebuild continues",
       "B": "The array enters degraded mode and data is still accessible",
-      "C": "Total data loss — RAID 5 can only tolerate one disk failure",
+      "C": "Total data loss \u2014 RAID 5 can only tolerate one disk failure",
       "D": "The controller automatically switches to RAID 6"
     },
     "correct": "C",
-    "explanation": "RAID 5 tolerates exactly one disk failure. If a second disk fails during rebuild (a risk called URE — Unrecoverable Read Error — which is statistically significant on large modern drives), the array loses all data. This is why RAID 6 or RAID 10 is preferred for large or critical arrays. Always monitor RAID status and replace failed drives immediately.",
+    "explanation": "RAID 5 tolerates exactly one disk failure. If a second disk fails during rebuild (a risk called URE \u2014 Unrecoverable Read Error \u2014 which is statistically significant on large modern drives), the array loses all data. This is why RAID 6 or RAID 10 is preferred for large or critical arrays. Always monitor RAID status and replace failed drives immediately.",
     "topic": "RAID",
-    "tags": ["raid5", "fault-tolerance", "ure", "data-loss"]
+    "tags": [
+      "raid5",
+      "fault-tolerance",
+      "ure",
+      "data-loss"
+    ]
   },
   {
     "id": "srv_011",
@@ -171,8 +221,208 @@
       "D": "Network Policy Server"
     },
     "correct": "C",
-    "explanation": "The DHCP Server role dynamically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to clients. In a Windows domain, DHCP must be authorized in Active Directory to prevent rogue DHCP servers. DNS resolves names to IPs — a separate but complementary role.",
+    "explanation": "The DHCP Server role dynamically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to clients. In a Windows domain, DHCP must be authorized in Active Directory to prevent rogue DHCP servers. DNS resolves names to IPs \u2014 a separate but complementary role.",
     "topic": "Windows Server roles",
-    "tags": ["dhcp", "windows-server", "ip-addressing", "server-roles"]
+    "tags": [
+      "dhcp",
+      "windows-server",
+      "ip-addressing",
+      "server-roles"
+    ]
+  },
+  {
+    "id": "srv_012",
+    "section": "server",
+    "difficulty": "medium",
+    "question": "Which DNS record type is used to specify which mail server is responsible for accepting email for a domain (e.g. contoso.com)?",
+    "options": {
+      "A": "A record",
+      "B": "CNAME record",
+      "C": "MX record",
+      "D": "PTR record"
+    },
+    "correct": "C",
+    "explanation": "MX (Mail Exchanger) records point to the mail server(s) that accept email for a domain. Each MX record has a priority value \u2014 lower number = higher priority. Misconfigured MX records are the most common cause of email delivery failures. PTR records are reverse DNS (IP \u2192 hostname). CNAME creates an alias for another hostname.",
+    "topic": "DNS records",
+    "tags": [
+      "dns",
+      "mx-record",
+      "email",
+      "mail-server"
+    ]
+  },
+  {
+    "id": "srv_013",
+    "section": "server",
+    "difficulty": "medium",
+    "question": "What is the purpose of Active Directory Organizational Units (OUs)?",
+    "options": {
+      "A": "To separate users into different security domains",
+      "B": "To group objects (users, computers, groups) for easier administration and targeted GPO application",
+      "C": "To define IP address ranges for DHCP scopes",
+      "D": "To create separate DNS zones within the domain"
+    },
+    "correct": "B",
+    "explanation": "OUs are containers in AD that group objects for two main purposes: (1) delegation \u2014 granting specific admins control over a subset of objects (e.g. \"Helpdesk can reset passwords in the London OU\"); (2) GPO targeting \u2014 applying different policies to different OUs. OUs do not create security boundaries (that requires separate domains or forests).",
+    "topic": "Active Directory",
+    "tags": [
+      "ad",
+      "ou",
+      "organizational-unit",
+      "gpo",
+      "delegation"
+    ]
+  },
+  {
+    "id": "srv_014",
+    "section": "server",
+    "difficulty": "medium",
+    "question": "A file server's shared folder is unavailable after a ransomware attack encrypted files. The server has Volume Shadow Copy (VSS) enabled. What can VSS be used for?",
+    "options": {
+      "A": "Removing the ransomware executable from the server",
+      "B": "Restoring previous versions of files from shadow copies taken before the attack",
+      "C": "Decrypting files without the ransomware key",
+      "D": "Preventing future ransomware attacks on this share"
+    },
+    "correct": "B",
+    "explanation": "Volume Shadow Copy Service (VSS) creates point-in-time snapshots of volumes. Users can access previous versions of files via \"Restore previous versions\" in Windows Explorer. In a ransomware scenario, if the attacker did not delete shadow copies, files can be restored to a pre-attack state. Many ransomware strains specifically target and delete VSS snapshots using vssadmin delete shadows.",
+    "topic": "Volume Shadow Copy",
+    "tags": [
+      "vss",
+      "shadow-copy",
+      "previous-versions",
+      "ransomware",
+      "recovery"
+    ]
+  },
+  {
+    "id": "srv_015",
+    "section": "server",
+    "difficulty": "easy",
+    "question": "Which Windows Server role allows you to run multiple virtual machines on a single physical host?",
+    "options": {
+      "A": "IIS (Internet Information Services)",
+      "B": "Hyper-V",
+      "C": "Remote Desktop Services",
+      "D": "Windows Deployment Services"
+    },
+    "correct": "B",
+    "explanation": "Hyper-V is Microsoft's Type 1 hypervisor built into Windows Server (and Windows 10/11 Pro). It creates and manages virtual machines (VMs), each with its own OS, isolated from others. IIS hosts web applications. RDS provides remote desktop/app delivery. WDS deploys Windows OS over the network to bare-metal machines.",
+    "topic": "Hyper-V",
+    "tags": [
+      "hyper-v",
+      "virtualization",
+      "vm",
+      "windows-server"
+    ]
+  },
+  {
+    "id": "srv_016",
+    "section": "server",
+    "difficulty": "hard",
+    "question": "What is the difference between RAID 1 and RAID 10 (1+0)?",
+    "options": {
+      "A": "RAID 1 stripes across 4 disks; RAID 10 mirrors two disks",
+      "B": "RAID 1 mirrors exactly 2 disks with no performance benefit; RAID 10 mirrors pairs of disks AND stripes across the pairs, giving both redundancy and read performance",
+      "C": "RAID 10 provides parity like RAID 5 but across 4 disks",
+      "D": "They are identical \u2014 RAID 10 is just the newer name for RAID 1"
+    },
+    "correct": "B",
+    "explanation": "RAID 1: two disks, one is a mirror of the other. Simple redundancy, reads can be served from either disk. RAID 10 (1+0): minimum 4 disks \u2014 disks are mirrored in pairs (RAID 1), then the mirrored pairs are striped together (RAID 0). Result: fault tolerance (can lose one disk per mirrored pair) plus stripe read/write performance. RAID 10 costs more disk but is preferred for high-performance, high-availability databases.",
+    "topic": "RAID",
+    "tags": [
+      "raid1",
+      "raid10",
+      "mirroring",
+      "striping",
+      "performance"
+    ]
+  },
+  {
+    "id": "srv_017",
+    "section": "server",
+    "difficulty": "medium",
+    "question": "A junior admin accidentally deleted an OU in Active Directory containing 300 user accounts. What feature must be enabled to restore it without a full AD restore?",
+    "options": {
+      "A": "Group Policy Object versioning",
+      "B": "Active Directory Recycle Bin",
+      "C": "Volume Shadow Copy",
+      "D": "Windows Server Backup with System State"
+    },
+    "correct": "B",
+    "explanation": "The AD Recycle Bin (available since Server 2008 R2, must be explicitly enabled) preserves deleted objects with all their attributes for a configurable tombstone lifetime (default 180 days). Restore via PowerShell: Get-ADObject -Filter ... | Restore-ADObject. Without the Recycle Bin, restoring requires an authoritative restore from backup, which is disruptive. VSS does not capture AD objects at the OU level.",
+    "topic": "Active Directory",
+    "tags": [
+      "ad-recycle-bin",
+      "ad",
+      "deleted-objects",
+      "disaster-recovery"
+    ]
+  },
+  {
+    "id": "srv_018",
+    "section": "server",
+    "difficulty": "medium",
+    "question": "What does the Windows Server role \"FSMO - PDC Emulator\" do that is relevant to L2 desktop support?",
+    "options": {
+      "A": "It is the only DC that can create new user accounts",
+      "B": "It handles time synchronization for the domain and processes password changes/lockouts \u2014 affecting login and lockout troubleshooting",
+      "C": "It allocates IP addresses to domain computers",
+      "D": "It replicates DNS records across all domain controllers"
+    },
+    "correct": "B",
+    "explanation": "The PDC Emulator is the authoritative time source for the domain (clients sync to their DC, DCs sync to the PDC Emulator). It also receives immediate password change notifications \u2014 important for resolving \"old password works, new one doesn't\" issues. For lockout troubleshooting, the PDC Emulator aggregates lockout events from all DCs. If the PDC Emulator is down, time drift and auth issues follow.",
+    "topic": "Active Directory",
+    "tags": [
+      "fsmo",
+      "pdc-emulator",
+      "time-sync",
+      "lockout",
+      "ad"
+    ]
+  },
+  {
+    "id": "srv_019",
+    "section": "server",
+    "difficulty": "medium",
+    "question": "Which backup type only copies data that has changed since the last FULL backup (regardless of intervening backups), and how does it compare to incremental for restore speed?",
+    "options": {
+      "A": "Incremental \u2014 faster to restore because it only needs the last incremental",
+      "B": "Differential \u2014 slower to backup over time but faster to restore (needs only full + last differential)",
+      "C": "Differential \u2014 faster to backup and faster to restore",
+      "D": "Incremental \u2014 slower to backup and slower to restore"
+    },
+    "correct": "B",
+    "explanation": "Differential backs up all changes since the last FULL. It grows larger each day but restoring requires only 2 sets: the full + the latest differential. Incremental backs up changes since the last backup (any type) \u2014 smaller daily backups but restore requires the full plus every incremental in sequence. Trade-off: differential = fast restore, large backup; incremental = fast backup, slow restore.",
+    "topic": "Backup types",
+    "tags": [
+      "backup",
+      "differential",
+      "incremental",
+      "restore",
+      "comparison"
+    ]
+  },
+  {
+    "id": "srv_020",
+    "section": "server",
+    "difficulty": "easy",
+    "question": "A Windows Server shows high memory usage but the administrator is unsure which process is consuming it. Which built-in tool provides per-process memory, CPU, disk, and network usage on a server?",
+    "options": {
+      "A": "Event Viewer",
+      "B": "Server Manager",
+      "C": "Resource Monitor (resmon.exe)",
+      "D": "Computer Management"
+    },
+    "correct": "C",
+    "explanation": "Resource Monitor (resmon.exe) shows real-time per-process CPU, memory (Working Set vs Commit), disk I/O, and network usage with drill-down. More detailed than Task Manager. Server Manager shows role/feature status and aggregate health. Event Viewer shows logs, not live resource usage. Computer Management covers disk, services, and local users.",
+    "topic": "Server monitoring",
+    "tags": [
+      "resource-monitor",
+      "memory",
+      "server",
+      "performance",
+      "troubleshooting"
+    ]
   }
 ]

@@ -13,7 +13,11 @@
     "correct": "C",
     "explanation": "Startup Repair (available from WinRE via F8 or install media) is the first-line tool for boot failures. It automatically diagnoses and fixes issues like missing boot files. sfc and DISM require a running OS; chkdsk fixes filesystem errors but won't repair a broken BCD.",
     "topic": "Boot troubleshooting",
-    "tags": ["boot", "winre", "startup-repair"]
+    "tags": [
+      "boot",
+      "winre",
+      "startup-repair"
+    ]
   },
   {
     "id": "euc_002",
@@ -29,7 +33,11 @@
     "correct": "B",
     "explanation": "Password resets for domain users are done in AD Users and Computers (or via PowerShell). 'User must change password at next logon' forces a new password on first login. Recreating the account would lose group memberships and profile data. Local Administrator can't reset domain passwords.",
     "topic": "Active Directory",
-    "tags": ["ad", "password-reset", "domain"]
+    "tags": [
+      "ad",
+      "password-reset",
+      "domain"
+    ]
   },
   {
     "id": "euc_003",
@@ -45,7 +53,11 @@
     "correct": "B",
     "explanation": "Immediate re-lockout after unlock almost always means a service, scheduled task, or saved credential (Windows Credential Manager, mapped drive, mobile device) is hammering the DC with the old password. Check Credential Manager and any mapped drives configured under the account.",
     "topic": "Active Directory",
-    "tags": ["ad", "account-lockout", "credential-manager"]
+    "tags": [
+      "ad",
+      "account-lockout",
+      "credential-manager"
+    ]
   },
   {
     "id": "euc_004",
@@ -59,9 +71,13 @@
       "D": "bcdedit /repair"
     },
     "correct": "C",
-    "explanation": "sfc /scannow (System File Checker) scans all protected system files and replaces corrupted ones from %WinDir%\\System32\\dllcache. chkdsk checks the filesystem/disk integrity. DISM repairs the Windows image itself. bcdedit manages boot configuration — it has no /repair switch.",
+    "explanation": "sfc /scannow (System File Checker) scans all protected system files and replaces corrupted ones from %WinDir%\\System32\\dllcache. chkdsk checks the filesystem/disk integrity. DISM repairs the Windows image itself. bcdedit manages boot configuration \u2014 it has no /repair switch.",
     "topic": "Windows tools",
-    "tags": ["sfc", "system-files", "windows-tools"]
+    "tags": [
+      "sfc",
+      "system-files",
+      "windows-tools"
+    ]
   },
   {
     "id": "euc_005",
@@ -75,9 +91,14 @@
       "D": "Run chkdsk on the drive containing the OST"
     },
     "correct": "C",
-    "explanation": "For cloud mailboxes, always check service health first (admin.microsoft.com → Service Health) before doing local troubleshooting. An Exchange Online outage would explain why sending still works (cached in Outbox) but receiving fails. Only escalate to local remediation after ruling out upstream issues.",
+    "explanation": "For cloud mailboxes, always check service health first (admin.microsoft.com \u2192 Service Health) before doing local troubleshooting. An Exchange Online outage would explain why sending still works (cached in Outbox) but receiving fails. Only escalate to local remediation after ruling out upstream issues.",
     "topic": "Office 365 / Outlook",
-    "tags": ["outlook", "exchange-online", "o365", "service-health"]
+    "tags": [
+      "outlook",
+      "exchange-online",
+      "o365",
+      "service-health"
+    ]
   },
   {
     "id": "euc_006",
@@ -88,12 +109,17 @@
       "A": "OST is for IMAP accounts; PST is for Exchange accounts",
       "B": "OST is an offline cached copy of an Exchange/365 mailbox; PST is a standalone archive file",
       "C": "OST files are encrypted; PST files are not",
-      "D": "They are identical — Microsoft uses both terms interchangeably"
+      "D": "They are identical \u2014 Microsoft uses both terms interchangeably"
     },
     "correct": "B",
-    "explanation": "An OST (Offline Storage Table) is a local cache of an Exchange/Microsoft 365 mailbox, synced from the server. A PST (Personal Storage Table) is an independent data file — used for archives or non-Exchange accounts. OST files cannot be moved to another profile; PST files are portable.",
+    "explanation": "An OST (Offline Storage Table) is a local cache of an Exchange/Microsoft 365 mailbox, synced from the server. A PST (Personal Storage Table) is an independent data file \u2014 used for archives or non-Exchange accounts. OST files cannot be moved to another profile; PST files are portable.",
     "topic": "Office 365 / Outlook",
-    "tags": ["outlook", "ost", "pst", "exchange"]
+    "tags": [
+      "outlook",
+      "ost",
+      "pst",
+      "exchange"
+    ]
   },
   {
     "id": "euc_007",
@@ -107,9 +133,13 @@
       "D": "Use Device Manager to disable and re-enable the printer"
     },
     "correct": "C",
-    "explanation": "Stuck print jobs live in the spooler folder. The correct fix is: net stop spooler → delete all files in %SystemRoot%\\System32\\spool\\PRINTERS → net start spooler. Restarting the PC also restarts the spooler but takes longer and may not clear corrupt spool files.",
+    "explanation": "Stuck print jobs live in the spooler folder. The correct fix is: net stop spooler \u2192 delete all files in %SystemRoot%\\System32\\spool\\PRINTERS \u2192 net start spooler. Restarting the PC also restarts the spooler but takes longer and may not clear corrupt spool files.",
     "topic": "Printers",
-    "tags": ["printer", "spooler", "stuck-jobs"]
+    "tags": [
+      "printer",
+      "spooler",
+      "stuck-jobs"
+    ]
   },
   {
     "id": "euc_008",
@@ -117,15 +147,20 @@
     "difficulty": "hard",
     "question": "A user receives a BSOD with stop code 0x0000007B. What does this indicate?",
     "options": {
-      "A": "Kernel data inpage error — bad RAM or disk",
-      "B": "Inaccessible boot device — Windows cannot find the system drive at boot",
-      "C": "Page fault in nonpaged area — corrupt driver or bad memory",
-      "D": "System service exception — a system service threw an unhandled exception"
+      "A": "Kernel data inpage error \u2014 bad RAM or disk",
+      "B": "Inaccessible boot device \u2014 Windows cannot find the system drive at boot",
+      "C": "Page fault in nonpaged area \u2014 corrupt driver or bad memory",
+      "D": "System service exception \u2014 a system service threw an unhandled exception"
     },
     "correct": "B",
-    "explanation": "0x0000007B = INACCESSIBLE_BOOT_DEVICE. Windows found the boot partition but couldn't read it — typically caused by a missing/corrupt storage driver (e.g. after switching SATA mode from AHCI to IDE in BIOS), a corrupt BCD, or a failed disk. Check BIOS storage mode and run Startup Repair.",
+    "explanation": "0x0000007B = INACCESSIBLE_BOOT_DEVICE. Windows found the boot partition but couldn't read it \u2014 typically caused by a missing/corrupt storage driver (e.g. after switching SATA mode from AHCI to IDE in BIOS), a corrupt BCD, or a failed disk. Check BIOS storage mode and run Startup Repair.",
     "topic": "BSOD",
-    "tags": ["bsod", "stop-code", "boot", "ahci"]
+    "tags": [
+      "bsod",
+      "stop-code",
+      "boot",
+      "ahci"
+    ]
   },
   {
     "id": "euc_009",
@@ -139,9 +174,13 @@
       "D": "net group /domain"
     },
     "correct": "B",
-    "explanation": "gpupdate /force reapplies all Group Policy settings regardless of whether they changed. gpresult /r is a reporting tool that shows applied policies — it doesn't refresh them. secedit is an older command that predates gpupdate. Some policy changes still require a logoff or reboot.",
+    "explanation": "gpupdate /force reapplies all Group Policy settings regardless of whether they changed. gpresult /r is a reporting tool that shows applied policies \u2014 it doesn't refresh them. secedit is an older command that predates gpupdate. Some policy changes still require a logoff or reboot.",
     "topic": "Group Policy",
-    "tags": ["gpo", "gpupdate", "group-policy"]
+    "tags": [
+      "gpo",
+      "gpupdate",
+      "group-policy"
+    ]
   },
   {
     "id": "euc_010",
@@ -151,19 +190,24 @@
     "options": {
       "A": "Boot from a USB and use a third-party tool to bypass BitLocker",
       "B": "Retrieve the BitLocker recovery key from Azure AD or Active Directory",
-      "C": "Reinstall Windows — the drive cannot be recovered without the key",
+      "C": "Reinstall Windows \u2014 the drive cannot be recovered without the key",
       "D": "Reset the BIOS password to unlock the drive"
     },
     "correct": "B",
     "explanation": "BitLocker recovery keys are stored in Azure AD (for cloud-joined devices) or on-premises AD (for domain-joined devices). Admins can retrieve the 48-digit key from the computer object in AD or from the Azure portal. Without the key, the drive data is cryptographically inaccessible.",
     "topic": "BitLocker",
-    "tags": ["bitlocker", "encryption", "recovery-key", "azure-ad"]
+    "tags": [
+      "bitlocker",
+      "encryption",
+      "recovery-key",
+      "azure-ad"
+    ]
   },
   {
     "id": "euc_011",
     "section": "euc",
     "difficulty": "medium",
-    "question": "A user reports their Windows profile is corrupted — they log in to a temporary profile. Which registry key stores user profile mappings?",
+    "question": "A user reports their Windows profile is corrupted \u2014 they log in to a temporary profile. Which registry key stores user profile mappings?",
     "options": {
       "A": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList",
       "B": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
@@ -173,7 +217,11 @@
     "correct": "A",
     "explanation": "ProfileList in HKLM maps SIDs to profile paths. A corrupted entry (duplicate SID with .bak suffix, or ProfileImagePath pointing to a non-existent folder) causes Windows to create a temporary profile. The fix is to delete the corrupt key and let Windows rebuild the profile, or restore from a backup profile folder.",
     "topic": "User profiles",
-    "tags": ["profile", "registry", "temporary-profile"]
+    "tags": [
+      "profile",
+      "registry",
+      "temporary-profile"
+    ]
   },
   {
     "id": "euc_012",
@@ -189,7 +237,12 @@
     "correct": "C",
     "explanation": "The enterprise-correct answer is to deploy software centrally via SCCM/Intune/PDQ, which runs installations in the SYSTEM context. This preserves least-privilege policy. Power Users is deprecated and still grants too much. 'Run as' with a shared admin credential violates least-privilege and audit requirements.",
     "topic": "Software management",
-    "tags": ["sccm", "intune", "least-privilege", "software-deployment"]
+    "tags": [
+      "sccm",
+      "intune",
+      "least-privilege",
+      "software-deployment"
+    ]
   },
   {
     "id": "euc_013",
@@ -205,7 +258,11 @@
     "correct": "C",
     "explanation": "chkdsk /f fixes filesystem errors; /r also locates bad sectors and recovers readable data. Because the C: drive is locked by the running OS, chkdsk schedules itself to run before Windows loads on the next reboot. sfc repairs system files, not filesystem structure. diskpart manages partitions.",
     "topic": "Windows tools",
-    "tags": ["chkdsk", "disk", "filesystem"]
+    "tags": [
+      "chkdsk",
+      "disk",
+      "filesystem"
+    ]
   },
   {
     "id": "euc_014",
@@ -221,7 +278,12 @@
     "correct": "C",
     "explanation": "'Send on Behalf' lets the user send mail where the From field shows 'User on behalf of SharedMailbox'. 'Send As' makes it appear the email came directly from the shared mailbox (no 'on behalf of' visible). Full Access grants mailbox access but not send rights. The correct permission depends on audit/visibility requirements.",
     "topic": "Office 365 / Outlook",
-    "tags": ["outlook", "shared-mailbox", "send-on-behalf", "exchange"]
+    "tags": [
+      "outlook",
+      "shared-mailbox",
+      "send-on-behalf",
+      "exchange"
+    ]
   },
   {
     "id": "euc_015",
@@ -229,7 +291,7 @@
     "difficulty": "hard",
     "question": "DISM /Online /Cleanup-Image /RestoreHealth fails with 'Source files could not be found.' What does this mean and how do you fix it?",
     "options": {
-      "A": "The Windows image is beyond repair — reinstall Windows",
+      "A": "The Windows image is beyond repair \u2014 reinstall Windows",
       "B": "DISM needs internet access to Windows Update; enable it and retry",
       "C": "Provide a local source with /Source:wim:\\install.wim:1 pointing to a mounted Windows ISO",
       "D": "Run sfc /scannow first to build the source cache"
@@ -237,7 +299,12 @@
     "correct": "C",
     "explanation": "DISM /RestoreHealth normally pulls repair files from Windows Update. If WU is blocked or the image is too corrupt, you must point it to a healthy source: mount a Windows ISO and use /Source:wim:D:\\sources\\install.wim:1 (index 1 = the edition). /LimitAccess prevents DISM from falling back to WU when a local source is specified.",
     "topic": "Windows tools",
-    "tags": ["dism", "windows-image", "repair", "iso"]
+    "tags": [
+      "dism",
+      "windows-image",
+      "repair",
+      "iso"
+    ]
   },
   {
     "id": "euc_016",
@@ -253,6 +320,348 @@
     "correct": "A",
     "explanation": "This error means the computer account's password in AD is out of sync with the local machine. Fix: log in with a local admin account, run 'Test-ComputerSecureChannel -Repair -Credential (Get-Credential)' in PowerShell (or disjoin and rejoin the domain). Alternatively, reset the computer account in AD then run netdom resetpwd.",
     "topic": "Active Directory",
-    "tags": ["ad", "domain-trust", "computer-account", "secure-channel"]
+    "tags": [
+      "ad",
+      "domain-trust",
+      "computer-account",
+      "secure-channel"
+    ]
+  },
+  {
+    "id": "euc_017",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user says their PC is running very slowly. Task Manager shows CPU at 100%. Which tab in Task Manager shows which specific process is consuming the most CPU?",
+    "options": {
+      "A": "Performance",
+      "B": "Services",
+      "C": "Processes",
+      "D": "Startup"
+    },
+    "correct": "C",
+    "explanation": "The Processes tab lists all running processes with their CPU, memory, disk, and network usage in real time. Click the CPU column header to sort descending \u2014 the top process is the culprit. The Performance tab shows overall graphs. Services tab manages Windows services. Startup controls what launches at boot.",
+    "topic": "Task Manager",
+    "tags": [
+      "task-manager",
+      "cpu",
+      "performance",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "euc_018",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user reports their PC freezes every day around the same time. You suspect a scheduled task or update. Which Windows tool shows logs of errors and warnings from the OS, applications, and security?",
+    "options": {
+      "A": "Task Scheduler",
+      "B": "Event Viewer",
+      "C": "Resource Monitor",
+      "D": "Performance Monitor"
+    },
+    "correct": "B",
+    "explanation": "Event Viewer (eventvwr.msc) logs errors, warnings, and informational events from Windows, applications, and security. The System log covers OS events; the Application log covers app crashes. For freeze diagnosis, filter for Critical and Error events around the time of the freeze. Task Scheduler shows scheduled tasks, not logs.",
+    "topic": "Event Viewer",
+    "tags": [
+      "event-viewer",
+      "logs",
+      "troubleshooting",
+      "freeze"
+    ]
+  },
+  {
+    "id": "euc_019",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "Which Event Viewer log should you check first when a user reports a random PC crash or BSOD?",
+    "options": {
+      "A": "Application log",
+      "B": "Security log",
+      "C": "System log",
+      "D": "Setup log"
+    },
+    "correct": "C",
+    "explanation": "BSODs and hardware-related crashes generate Critical events in the System log, typically with source \"BugCheck\" or \"Kernel-Power\" (Event ID 41 = unexpected shutdown). Application log tracks app crashes. Security log tracks login/audit events. Setup log records installation events.",
+    "topic": "Event Viewer",
+    "tags": [
+      "event-viewer",
+      "bsod",
+      "system-log",
+      "crash"
+    ]
+  },
+  {
+    "id": "euc_020",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user cannot open Device Manager because it shows a device with a yellow exclamation mark. What does this indicate?",
+    "options": {
+      "A": "The device is disabled",
+      "B": "The device has a driver problem \u2014 missing, corrupt, or incompatible driver",
+      "C": "The device is working correctly but not in use",
+      "D": "The device needs a firmware update"
+    },
+    "correct": "B",
+    "explanation": "In Device Manager: yellow exclamation (!) = driver error (missing, corrupt, or wrong version). Red X = device disabled. Down arrow = device manually disabled. Blue i = device using forced/manual resource settings. First action for a yellow bang: right-click \u2192 Update Driver or Uninstall Device and let Windows reinstall.",
+    "topic": "Device Manager",
+    "tags": [
+      "device-manager",
+      "driver",
+      "yellow-exclamation",
+      "hardware"
+    ]
+  },
+  {
+    "id": "euc_021",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "After a Windows Update, a user's printer stops working and Device Manager shows a yellow exclamation on the print driver. What is the most efficient fix?",
+    "options": {
+      "A": "Roll back the Windows Update",
+      "B": "Uninstall the driver in Device Manager, then reinstall the correct manufacturer driver",
+      "C": "Add the printer again from Settings \u2192 Printers",
+      "D": "Run sfc /scannow"
+    },
+    "correct": "B",
+    "explanation": "Windows Updates occasionally break third-party drivers. The cleanest fix is to uninstall the broken driver (Device Manager \u2192 right-click \u2192 Uninstall Device, check \"Delete driver software\"), download the current driver from the manufacturer's site, and reinstall. Simply re-adding the printer from Settings may pick up the same broken driver.",
+    "topic": "Device Manager",
+    "tags": [
+      "device-manager",
+      "driver",
+      "printer",
+      "windows-update"
+    ]
+  },
+  {
+    "id": "euc_022",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A Windows 10 PC has been stuck on \"Preparing to configure Windows\" for 45 minutes after an update. What is the safest first action?",
+    "options": {
+      "A": "Pull the power cord immediately",
+      "B": "Wait up to 2\u20133 hours \u2014 some updates legitimately take a long time",
+      "C": "Boot into Safe Mode and run chkdsk",
+      "D": "Hold the power button for 10 seconds to force shutdown, then boot into WinRE and use Startup Repair"
+    },
+    "correct": "D",
+    "explanation": "If Windows is genuinely stuck (no disk activity for 20+ min), a forced shutdown is acceptable. On next boot, WinRE may trigger automatically and offer to undo the update. Waiting 2\u20133 hours is only valid when disk activity is visible. Pulling the power cord risks filesystem corruption. Safe Mode may not be reachable mid-update.",
+    "topic": "Windows Update",
+    "tags": [
+      "windows-update",
+      "stuck",
+      "winre",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "euc_023",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user's C: drive is nearly full (98% used). Which built-in Windows tool removes temporary files, Recycle Bin contents, and old update files to free space?",
+    "options": {
+      "A": "Defragment and Optimize Drives",
+      "B": "Disk Cleanup (cleanmgr)",
+      "C": "chkdsk /r",
+      "D": "Storage Spaces"
+    },
+    "correct": "B",
+    "explanation": "Disk Cleanup (cleanmgr) removes temporary files, system cache, Windows Update leftovers (via \"Clean up system files\"), and empties the Recycle Bin. Run as admin and click \"Clean up system files\" to also remove old Windows installation files (Windows.old), which can recover 10\u201320 GB. Defrag optimizes file layout \u2014 it doesn't delete files.",
+    "topic": "Disk management",
+    "tags": [
+      "disk-cleanup",
+      "disk-space",
+      "storage",
+      "cleanmgr"
+    ]
+  },
+  {
+    "id": "euc_024",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user wants to extend their C: partition into unallocated space on the same disk. What is the easiest built-in tool to do this without losing data?",
+    "options": {
+      "A": "format /extend",
+      "B": "Disk Management (diskmgmt.msc) \u2192 Extend Volume",
+      "C": "diskpart /expand",
+      "D": "Storage Spaces in Settings"
+    },
+    "correct": "B",
+    "explanation": "Disk Management \u2192 right-click the volume \u2192 Extend Volume works non-destructively, provided the unallocated space is directly to the right of the partition (on the same disk, same partition type). diskpart can also do this via \"extend\" command. Storage Spaces creates new pooled volumes \u2014 it doesn't resize existing ones.",
+    "topic": "Disk management",
+    "tags": [
+      "disk-management",
+      "partition",
+      "extend-volume",
+      "storage"
+    ]
+  },
+  {
+    "id": "euc_025",
+    "section": "euc",
+    "difficulty": "hard",
+    "question": "A user's laptop shows \"No bootable device\" after you swapped the drive. The new SSD was cloned from the old drive. What is the most likely cause?",
+    "options": {
+      "A": "The SSD is faulty",
+      "B": "The BIOS boot order is still set to boot from the old drive bay or USB",
+      "C": "Windows license is tied to the old hardware",
+      "D": "The clone did not copy the MBR/GPT partition table, so the boot record is missing or the partition is not marked active"
+    },
+    "correct": "D",
+    "explanation": "Cloning tools can fail to copy the boot partition correctly, or the destination disk ends up with the wrong partition type (MBR vs GPT), or the EFI System Partition is not cloned. Fix: boot from Windows media \u2192 WinRE \u2192 Startup Repair, or use bootrec /rebuildbcd. Also verify BIOS boot mode matches disk type (UEFI for GPT, Legacy for MBR).",
+    "topic": "Boot troubleshooting",
+    "tags": [
+      "boot",
+      "clone",
+      "mbr",
+      "gpt",
+      "uefi"
+    ]
+  },
+  {
+    "id": "euc_026",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user is asked to use System Restore to undo recent changes. What does System Restore actually restore?",
+    "options": {
+      "A": "All files including documents and downloads",
+      "B": "Only Windows Registry and system files; personal files are not affected",
+      "C": "Only installed applications",
+      "D": "The entire disk to a previous image backup"
+    },
+    "correct": "B",
+    "explanation": "System Restore rolls back the Windows Registry, system files, and installed programs to a previous restore point \u2014 but does NOT affect personal files (documents, photos, email). It's useful for undoing bad driver or software installs. It is not a full backup solution. Restore points are created automatically before major updates and driver installs.",
+    "topic": "System Restore",
+    "tags": [
+      "system-restore",
+      "restore-point",
+      "rollback"
+    ]
+  },
+  {
+    "id": "euc_027",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user's PC shows a UAC (User Account Control) prompt every time they open an application. They want to disable UAC entirely. What is the risk of doing so?",
+    "options": {
+      "A": "The PC will run slower without UAC",
+      "B": "All applications will run with elevated (admin) privileges, so malware can make system changes silently without any prompt",
+      "C": "Windows Update will stop working",
+      "D": "The user will be unable to install any software"
+    },
+    "correct": "B",
+    "explanation": "UAC limits apps to standard user rights even if the logged-in account is an admin. Disabling UAC means every process runs with full admin rights \u2014 malware exploits this to install silently, modify registry, or disable security tools. The correct fix is to investigate why the specific app triggers UAC (needs admin rights by design), not to disable UAC globally.",
+    "topic": "UAC",
+    "tags": [
+      "uac",
+      "security",
+      "admin-rights",
+      "malware"
+    ]
+  },
+  {
+    "id": "euc_028",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A mapped network drive (Z:) disconnects every time the user logs off and must be re-added manually. The drive is mapped via Login Script GPO. What should you check first?",
+    "options": {
+      "A": "The server hosting the share is offline",
+      "B": "The GPO applying the drive map is not targeting the correct OU or security group",
+      "C": "The user's home drive letter conflicts with Z:",
+      "D": "Windows Fast Startup is caching a stale drive map"
+    },
+    "correct": "B",
+    "explanation": "If a GPO drive mapping is not persisting, the most common cause is GPO targeting \u2014 the policy may be applied to a different OU or filtered to a security group the user is not in. Run gpresult /r to check which GPOs are applied. Also verify the share path is correct and the user has read access. Fast Startup is a secondary suspect but less common.",
+    "topic": "Group Policy",
+    "tags": [
+      "gpo",
+      "drive-mapping",
+      "network-drive",
+      "targeting"
+    ]
+  },
+  {
+    "id": "euc_029",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user reports that OneDrive shows a red X on files in their synced folder. What does the red X typically indicate?",
+    "options": {
+      "A": "The file is too large to sync",
+      "B": "OneDrive cannot sync the file \u2014 possible causes: sync paused, file in use, filename contains illegal characters, or storage quota exceeded",
+      "C": "The file has been deleted from the cloud",
+      "D": "The file is encrypted with BitLocker"
+    },
+    "correct": "B",
+    "explanation": "A red X on OneDrive files means sync failed for that item. Common causes: filename has characters not allowed in OneDrive (e.g. # % * : < > ? /), the file is locked by another process, the user's OneDrive storage is full, or the file path is too long (>400 chars). Check the OneDrive activity center (system tray icon) for the specific error.",
+    "topic": "OneDrive",
+    "tags": [
+      "onedrive",
+      "sync",
+      "cloud-storage",
+      "o365"
+    ]
+  },
+  {
+    "id": "euc_030",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user connects to the corporate VPN but cannot access internal file shares or intranet sites, though they can browse the internet normally. What is the most likely explanation?",
+    "options": {
+      "A": "The VPN client is not installed correctly",
+      "B": "Split tunneling is enabled \u2014 only internet traffic goes over the VPN; internal routes are not configured",
+      "C": "The user's AD account is disabled",
+      "D": "DNS is not working on the user's machine"
+    },
+    "correct": "B",
+    "explanation": "Split tunneling routes only specific traffic (e.g. internal subnets) through the VPN tunnel while internet traffic goes directly. If internal routes are missing from the split-tunnel config, the user reaches the internet fine but can't reach internal resources. Full-tunnel VPN sends all traffic through the corporate network. This is a VPN configuration issue, not a client fault.",
+    "topic": "VPN",
+    "tags": [
+      "vpn",
+      "split-tunneling",
+      "remote-access",
+      "routing"
+    ]
+  },
+  {
+    "id": "euc_031",
+    "section": "euc",
+    "difficulty": "hard",
+    "question": "A user's Outlook shows \"Disconnected\" in the status bar despite having internet access. The web version of Outlook (OWA) works fine. What should you try first?",
+    "options": {
+      "A": "Reinstall Office",
+      "B": "Run the Microsoft Support and Recovery Assistant (SaRA) or start Outlook in Safe Mode (outlook.exe /safe) to rule out add-in conflicts",
+      "C": "Delete the user's AD account and recreate it",
+      "D": "Disable Windows Firewall"
+    },
+    "correct": "B",
+    "explanation": "If OWA works, the issue is local to the Outlook client, not the mailbox. Starting Outlook in Safe Mode (outlook.exe /safe) disables add-ins \u2014 if it connects, an add-in is the culprit. Microsoft SaRA automates diagnosis of Office/Exchange connectivity issues. Recreating the AD account is destructive and unnecessary. Reinstalling Office is a last resort.",
+    "topic": "Office 365 / Outlook",
+    "tags": [
+      "outlook",
+      "disconnected",
+      "safe-mode",
+      "add-in",
+      "sara"
+    ]
+  },
+  {
+    "id": "euc_032",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user gets a \"Windows is not activated\" notification after a motherboard replacement. Why does this happen?",
+    "options": {
+      "A": "The Windows license file was stored on the old motherboard's BIOS chip",
+      "B": "Windows activation ties the license to hardware fingerprint (including motherboard); a major hardware change triggers reactivation",
+      "C": "The technician accidentally deleted the product key during the repair",
+      "D": "Windows must be reinstalled after any hardware change"
+    },
+    "correct": "B",
+    "explanation": "Windows uses a hardware hash (fingerprint) that includes the motherboard, CPU, NIC, and other components. A motherboard swap changes the fingerprint enough to invalidate activation. For volume-licensed (domain-joined) PCs, KMS reactivation happens automatically. For retail/OEM licenses, the user must call Microsoft Activation Center or reactivate online. OEM licenses tied to the motherboard may require a new license.",
+    "topic": "Windows licensing",
+    "tags": [
+      "activation",
+      "license",
+      "motherboard",
+      "hardware"
+    ]
   }
 ]

@@ -11,9 +11,13 @@
       "D": "Option D"
     },
     "correct": "B",
-    "explanation": "The subject is 'list' (singular), not 'issues'. The prepositional phrase 'of issues' doesn't change the subject. Singular subject → singular verb: 'is being reviewed.' Options A and C incorrectly use 'are' (plural). Option D has a grammatical error ('were been').",
-    "topic": "Grammar — subject-verb agreement",
-    "tags": ["grammar", "subject-verb", "agreement"]
+    "explanation": "The subject is 'list' (singular), not 'issues'. The prepositional phrase 'of issues' doesn't change the subject. Singular subject \u2192 singular verb: 'is being reviewed.' Options A and C incorrectly use 'are' (plural). Option D has a grammatical error ('were been').",
+    "topic": "Grammar \u2014 subject-verb agreement",
+    "tags": [
+      "grammar",
+      "subject-verb",
+      "agreement"
+    ]
   },
   {
     "id": "eng_002",
@@ -27,9 +31,14 @@
       "D": "We need to effect a change in how users are effected."
     },
     "correct": "C",
-    "explanation": "'Affect' is usually a verb (to influence); 'effect' is usually a noun (the result). Option C: 'affected' (verb) and 'the effect' (noun) — both correct. Option A should be 'affect.' Option B should be 'effect.' Option D misuses both. Exception: 'to effect change' (verb = to bring about) exists but is formal and not the default usage.",
-    "topic": "Grammar — commonly confused words",
-    "tags": ["grammar", "affect", "effect", "word-choice"]
+    "explanation": "'Affect' is usually a verb (to influence); 'effect' is usually a noun (the result). Option C: 'affected' (verb) and 'the effect' (noun) \u2014 both correct. Option A should be 'affect.' Option B should be 'effect.' Option D misuses both. Exception: 'to effect change' (verb = to bring about) exists but is formal and not the default usage.",
+    "topic": "Grammar \u2014 commonly confused words",
+    "tags": [
+      "grammar",
+      "affect",
+      "effect",
+      "word-choice"
+    ]
   },
   {
     "id": "eng_003",
@@ -45,7 +54,12 @@
     "correct": "B",
     "explanation": "A professional IT response includes: a greeting, ticket reference number, an immediate diagnostic question (to avoid back-and-forth), and a clear SLA commitment. Options A and C are vague and don't gather diagnostic info. Option D is technically relevant but rude and unprofessional in tone without any acknowledgment.",
     "topic": "Professional writing",
-    "tags": ["professional-writing", "support-ticket", "tone", "communication"]
+    "tags": [
+      "professional-writing",
+      "support-ticket",
+      "tone",
+      "communication"
+    ]
   },
   {
     "id": "eng_004",
@@ -61,7 +75,11 @@
     "correct": "C",
     "explanation": "The passage explicitly states: 'The team attribute this improvement to the new remote-access tooling deployed in January.' The volume actually increased (15% more tickets), so A is wrong. B and D are not mentioned in the passage. Reading comprehension questions test whether you extract stated facts, not make inferences.",
     "topic": "Reading comprehension",
-    "tags": ["reading-comprehension", "passage", "inference"]
+    "tags": [
+      "reading-comprehension",
+      "passage",
+      "inference"
+    ]
   },
   {
     "id": "eng_005",
@@ -75,9 +93,14 @@
       "D": "The router lost its default settings; it's been reset to factory."
     },
     "correct": "D",
-    "explanation": "'It's' = it is (contraction). 'Its' = possessive pronoun. Option D: 'its default settings' (possessive — correct) and 'it's been reset' (it has been — correct). Options A and C wrongly use 'it's' as possessive. Option B should be 'It's important' (= It is important) — missing the apostrophe.",
-    "topic": "Grammar — commonly confused words",
-    "tags": ["grammar", "its", "contraction", "possessive"]
+    "explanation": "'It's' = it is (contraction). 'Its' = possessive pronoun. Option D: 'its default settings' (possessive \u2014 correct) and 'it's been reset' (it has been \u2014 correct). Options A and C wrongly use 'it's' as possessive. Option B should be 'It's important' (= It is important) \u2014 missing the apostrophe.",
+    "topic": "Grammar \u2014 commonly confused words",
+    "tags": [
+      "grammar",
+      "its",
+      "contraction",
+      "possessive"
+    ]
   },
   {
     "id": "eng_006",
@@ -91,8 +114,119 @@
       "D": "Due to the switch malfunction that is happening, users are having issues accessing resources."
     },
     "correct": "A",
-    "explanation": "Good business writing is clear and concise. 'Due to the fact that' → 'Because' or just rephrase. 'At this point in time / at the present moment' are redundant — just say what's happening now. Option A removes all padding while preserving the meaning. Option B is informal. Options C and D still carry filler phrases.",
+    "explanation": "Good business writing is clear and concise. 'Due to the fact that' \u2192 'Because' or just rephrase. 'At this point in time / at the present moment' are redundant \u2014 just say what's happening now. Option A removes all padding while preserving the meaning. Option B is informal. Options C and D still carry filler phrases.",
     "topic": "Professional writing",
-    "tags": ["concise-writing", "business-writing", "rewriting", "clarity"]
+    "tags": [
+      "concise-writing",
+      "business-writing",
+      "rewriting",
+      "clarity"
+    ]
+  },
+  {
+    "id": "eng_007",
+    "section": "english",
+    "difficulty": "easy",
+    "question": "Choose the sentence where \"there\", \"their\", and \"they're\" are all used correctly.",
+    "options": {
+      "A": "The technicians updated they're laptops, and their working fine over there.",
+      "B": "The technicians updated their laptops, and they're working fine over there.",
+      "C": "The technicians updated there laptops, and their working fine over their.",
+      "D": "The technicians updated their laptops, and their working fine over they're."
+    },
+    "correct": "B",
+    "explanation": "\"Their\" = possessive pronoun (belongs to them). \"They're\" = they are (contraction). \"There\" = a place or expletive. Option B: \"their laptops\" (possessive) + \"they're working\" (they are working) + \"over there\" (location) \u2014 all three correct. Option A misuses \"they're\" as possessive. Options C and D swap these incorrectly.",
+    "topic": "Grammar \u2014 commonly confused words",
+    "tags": [
+      "grammar",
+      "there",
+      "their",
+      "theyre",
+      "homophones"
+    ]
+  },
+  {
+    "id": "eng_008",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "Which of the following email subject lines is most effective for an IT support ticket escalation?",
+    "options": {
+      "A": "Important!!!",
+      "B": "Computer issue",
+      "C": "URGENT: Finance file server offline \u2014 20 users affected, ETA needed",
+      "D": "Please help when you get a chance"
+    },
+    "correct": "C",
+    "explanation": "An effective escalation subject line must convey: severity (URGENT), what the issue is (Finance file server offline), scope (20 users affected), and what is needed (ETA). Option C does all four in one line, letting the reader prioritize without opening the email. \"Important!!!\" and \"Computer issue\" are too vague; they get lost in a busy inbox. \"Please help when you get a chance\" signals low urgency.",
+    "topic": "Professional writing",
+    "tags": [
+      "email",
+      "subject-line",
+      "escalation",
+      "professional-writing"
+    ]
+  },
+  {
+    "id": "eng_009",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "Read the following ticket update and identify the main problem with it:\n\n\"So I went ahead and tried the thing we talked about but it didn't really work so then I tried another thing and that sort of helped but not completely so now it's kind of working sometimes but not always and I'm not sure what to do next.\"\n\nWhat is the primary issue?",
+    "options": {
+      "A": "The message is too short",
+      "B": "It uses passive voice",
+      "C": "It lacks specific actions, outcomes, and next steps \u2014 the reader cannot act on it",
+      "D": "It should start with a greeting"
+    },
+    "correct": "C",
+    "explanation": "The message is vague on every dimension: \"the thing we talked about\" (what action?), \"didn't really work\" (what happened specifically?), \"sort of helped\" (what improved?), \"kind of working sometimes\" (under what conditions?). A useful ticket update names the specific steps taken, the exact outcome observed, and a clear question or next step. A greeting would be nice but is not the primary issue here.",
+    "topic": "Professional writing",
+    "tags": [
+      "ticket",
+      "clarity",
+      "professional-writing",
+      "specificity"
+    ]
+  },
+  {
+    "id": "eng_010",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "Read the following passage and answer:\n\n\"After the server migration completed at 02:00, the monitoring system flagged 47 alerts within the first hour. The on-call engineer reviewed them and determined that 43 were false positives caused by the monitoring thresholds not being recalibrated for the new server's higher baseline performance. The remaining 4 alerts were genuine and were resolved within 30 minutes.\"\n\nHow many genuine alerts were triggered during the first hour post-migration?",
+    "options": {
+      "A": "47",
+      "B": "43",
+      "C": "4",
+      "D": "30"
+    },
+    "correct": "C",
+    "explanation": "47 total alerts \u2212 43 false positives = 4 genuine alerts. The passage explicitly states: \"The remaining 4 alerts were genuine.\" Option A is the total. Option B is the false positives. Option D is the resolution time in minutes, not a count. Reading comprehension requires distinguishing between numbers in the text and what each refers to.",
+    "topic": "Reading comprehension",
+    "tags": [
+      "reading-comprehension",
+      "passage",
+      "numbers",
+      "inference"
+    ]
+  },
+  {
+    "id": "eng_011",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "Which sentence uses the active voice and is the most direct?",
+    "options": {
+      "A": "The issue was resolved by the technician.",
+      "B": "Resolution of the issue was achieved.",
+      "C": "The technician resolved the issue.",
+      "D": "It was the technician who was responsible for the resolution of the issue."
+    },
+    "correct": "C",
+    "explanation": "Active voice: Subject performs the action. \"The technician resolved the issue\" \u2014 subject (technician) + verb (resolved) + object (issue). Option A is passive (the issue was resolved by...). Option B omits the actor entirely (passive, vague). Option D is active in structure but bloated. In business/IT writing, active voice is clearer and more accountable.",
+    "topic": "Professional writing",
+    "tags": [
+      "active-voice",
+      "passive-voice",
+      "clarity",
+      "writing"
+    ]
   }
 ]
