@@ -1,0 +1,98 @@
+[
+  {
+    "id": "eng_001",
+    "section": "english",
+    "difficulty": "easy",
+    "question": "Choose the sentence with correct subject-verb agreement:\n\nA: 'The list of issues are being reviewed by the team.'\nB: 'The list of issues is being reviewed by the team.'\nC: 'The list of issues are reviewed by the team currently.'\nD: 'The list of issues were been reviewed by the team.'",
+    "options": {
+      "A": "Option A",
+      "B": "Option B",
+      "C": "Option C",
+      "D": "Option D"
+    },
+    "correct": "B",
+    "explanation": "The subject is 'list' (singular), not 'issues'. The prepositional phrase 'of issues' doesn't change the subject. Singular subject → singular verb: 'is being reviewed.' Options A and C incorrectly use 'are' (plural). Option D has a grammatical error ('were been').",
+    "topic": "Grammar — subject-verb agreement",
+    "tags": ["grammar", "subject-verb", "agreement"]
+  },
+  {
+    "id": "eng_002",
+    "section": "english",
+    "difficulty": "easy",
+    "question": "Which sentence uses 'affect' and 'effect' correctly?",
+    "options": {
+      "A": "The outage will effect all users in the building.",
+      "B": "The new patch had no affect on system performance.",
+      "C": "The update affected login times, and the effect was a 30% improvement.",
+      "D": "We need to effect a change in how users are effected."
+    },
+    "correct": "C",
+    "explanation": "'Affect' is usually a verb (to influence); 'effect' is usually a noun (the result). Option C: 'affected' (verb) and 'the effect' (noun) — both correct. Option A should be 'affect.' Option B should be 'effect.' Option D misuses both. Exception: 'to effect change' (verb = to bring about) exists but is formal and not the default usage.",
+    "topic": "Grammar — commonly confused words",
+    "tags": ["grammar", "affect", "effect", "word-choice"]
+  },
+  {
+    "id": "eng_003",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "A user submits this support ticket: 'my computer is broken it dosnt turn on i need it fixed asap plz'. Which is the most professional response to open a support ticket?",
+    "options": {
+      "A": "OK we'll look at it.",
+      "B": "Hello, thank you for contacting IT Support. I have logged a ticket for your issue (INC-4821). Could you please confirm: does the PC show any lights or sounds when you press the power button? I will follow up within 30 minutes.",
+      "C": "Your ticket has been received. Someone will fix it when they can.",
+      "D": "Did you check if it's plugged in?"
+    },
+    "correct": "B",
+    "explanation": "A professional IT response includes: a greeting, ticket reference number, an immediate diagnostic question (to avoid back-and-forth), and a clear SLA commitment. Options A and C are vague and don't gather diagnostic info. Option D is technically relevant but rude and unprofessional in tone without any acknowledgment.",
+    "topic": "Professional writing",
+    "tags": ["professional-writing", "support-ticket", "tone", "communication"]
+  },
+  {
+    "id": "eng_004",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "Read the following passage and answer the question:\n\n'The helpdesk team resolved 94% of tickets within the agreed SLA last quarter. Despite a 15% increase in ticket volume, average resolution time decreased from 4.2 hours to 3.8 hours. The team attribute this improvement to the new remote-access tooling deployed in January.'\n\nAccording to the passage, what caused the improvement in resolution time?",
+    "options": {
+      "A": "A reduction in ticket volume",
+      "B": "Hiring additional helpdesk staff",
+      "C": "The new remote-access tooling deployed in January",
+      "D": "Outsourcing tickets to a third-party provider"
+    },
+    "correct": "C",
+    "explanation": "The passage explicitly states: 'The team attribute this improvement to the new remote-access tooling deployed in January.' The volume actually increased (15% more tickets), so A is wrong. B and D are not mentioned in the passage. Reading comprehension questions test whether you extract stated facts, not make inferences.",
+    "topic": "Reading comprehension",
+    "tags": ["reading-comprehension", "passage", "inference"]
+  },
+  {
+    "id": "eng_005",
+    "section": "english",
+    "difficulty": "easy",
+    "question": "Which sentence uses 'its' and 'it's' correctly?",
+    "options": {
+      "A": "The server lost it's configuration after the reboot.",
+      "B": "Its important to restart the service after the update.",
+      "C": "The application stores it's logs in the temp folder.",
+      "D": "The router lost its default settings; it's been reset to factory."
+    },
+    "correct": "D",
+    "explanation": "'It's' = it is (contraction). 'Its' = possessive pronoun. Option D: 'its default settings' (possessive — correct) and 'it's been reset' (it has been — correct). Options A and C wrongly use 'it's' as possessive. Option B should be 'It's important' (= It is important) — missing the apostrophe.",
+    "topic": "Grammar — commonly confused words",
+    "tags": ["grammar", "its", "contraction", "possessive"]
+  },
+  {
+    "id": "eng_006",
+    "section": "english",
+    "difficulty": "medium",
+    "question": "Rewrite the following for conciseness: 'Due to the fact that the network switch has experienced a malfunction at this point in time, users are currently unable to access shared network resources at the present moment.'\n\nWhich option is the best rewrite?",
+    "options": {
+      "A": "The network switch malfunctioned; users cannot access shared resources.",
+      "B": "The switch is broken and nobody can get to the network stuff they share.",
+      "C": "As a result of the network switch experiencing a problem, access to shared resources is unavailable.",
+      "D": "Due to the switch malfunction that is happening, users are having issues accessing resources."
+    },
+    "correct": "A",
+    "explanation": "Good business writing is clear and concise. 'Due to the fact that' → 'Because' or just rephrase. 'At this point in time / at the present moment' are redundant — just say what's happening now. Option A removes all padding while preserving the meaning. Option B is informal. Options C and D still carry filler phrases.",
+    "topic": "Professional writing",
+    "tags": ["concise-writing", "business-writing", "rewriting", "clarity"]
+  }
+]

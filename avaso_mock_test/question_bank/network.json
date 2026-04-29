@@ -1,0 +1,212 @@
+[
+  {
+    "id": "net_001",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "A user reports their PC has IP address 169.254.78.22 and cannot access network resources. What is the most likely cause?",
+    "options": {
+      "A": "DNS misconfiguration",
+      "B": "PC failed to obtain an IP from DHCP",
+      "C": "Default gateway unreachable",
+      "D": "User is on the wrong VLAN"
+    },
+    "correct": "B",
+    "explanation": "169.254.x.x is APIPA (Automatic Private IP Addressing) — Windows assigns this when DHCP fails. Without a real IP, the PC has no gateway or DNS configured, so it cannot reach anything beyond the local link. First step: check physical connection and DHCP server availability.",
+    "topic": "DHCP / APIPA",
+    "tags": ["dhcp", "apipa", "ip-addressing"]
+  },
+  {
+    "id": "net_002",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "Which OSI layer is responsible for logical addressing (IP addresses) and routing?",
+    "options": {
+      "A": "Layer 2 — Data Link",
+      "B": "Layer 3 — Network",
+      "C": "Layer 4 — Transport",
+      "D": "Layer 5 — Session"
+    },
+    "correct": "B",
+    "explanation": "Layer 3 (Network) handles IP addressing and routing. Routers operate at Layer 3. Layer 2 (Data Link) handles MAC addresses and switches. Layer 4 (Transport) handles TCP/UDP ports and end-to-end reliability. Layer 5 (Session) manages sessions/connections between applications.",
+    "topic": "OSI model",
+    "tags": ["osi", "layer3", "routing", "ip"]
+  },
+  {
+    "id": "net_003",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "A technician runs 'ipconfig /all' and sees the DNS Servers field is empty. A user can ping servers by IP but not by hostname. What should you do?",
+    "options": {
+      "A": "Replace the network cable",
+      "B": "Manually configure DNS server addresses or fix the DHCP scope's DNS option",
+      "C": "Disable and re-enable the NIC",
+      "D": "Run chkdsk to repair the hosts file"
+    },
+    "correct": "B",
+    "explanation": "Ping by IP works = Layer 3 is fine. Failure by hostname = name resolution broken. Empty DNS in ipconfig means DHCP isn't providing DNS (or DHCP is failing). Fix: manually set DNS (e.g. 8.8.8.8) or correct the DHCP scope's DNS option (DHCP Option 6). chkdsk doesn't affect DNS; the hosts file is separate.",
+    "topic": "DNS",
+    "tags": ["dns", "name-resolution", "dhcp", "ipconfig"]
+  },
+  {
+    "id": "net_004",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "Which port does Remote Desktop Protocol (RDP) use by default?",
+    "options": {
+      "A": "22",
+      "B": "443",
+      "C": "3389",
+      "D": "445"
+    },
+    "correct": "C",
+    "explanation": "RDP uses TCP port 3389 by default. Port 22 is SSH. Port 443 is HTTPS. Port 445 is SMB (Windows file sharing). Knowing common port numbers is essential for firewall troubleshooting.",
+    "topic": "Common ports",
+    "tags": ["ports", "rdp", "tcp"]
+  },
+  {
+    "id": "net_005",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "What is the difference between TCP and UDP?",
+    "options": {
+      "A": "TCP is faster; UDP is more reliable",
+      "B": "TCP provides connection-oriented, reliable delivery with acknowledgements; UDP is connectionless and has no guaranteed delivery",
+      "C": "TCP is used for video streaming; UDP is used for web browsing",
+      "D": "They operate at different OSI layers — TCP at Layer 3, UDP at Layer 4"
+    },
+    "correct": "B",
+    "explanation": "TCP (Transmission Control Protocol) establishes a connection (3-way handshake), guarantees delivery via acknowledgements, and retransmits lost packets — reliable but slower. UDP (User Datagram Protocol) is connectionless with no delivery guarantee — faster, used for DNS, VoIP, video streaming where latency matters more than perfection.",
+    "topic": "TCP vs UDP",
+    "tags": ["tcp", "udp", "transport-layer"]
+  },
+  {
+    "id": "net_006",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "A technician uses 'tracert 8.8.8.8' and sees the trace stops at hop 4 with timeouts for all remaining hops. What does this suggest?",
+    "options": {
+      "A": "The user's PC has a firewall blocking all traffic",
+      "B": "Connectivity fails or ICMP is blocked at or after hop 4",
+      "C": "The DNS server at 8.8.8.8 is down",
+      "D": "The default gateway is not configured"
+    },
+    "correct": "B",
+    "explanation": "tracert sends ICMP TTL-exceeded packets. A * * * at hop 4 means either: (a) that router drops ICMP (common on ISP routers — not a real outage), or (b) the path genuinely fails there. If subsequent hops also timeout, connectivity is broken beyond hop 4. If only that hop times out but later hops respond, the router just blocks ICMP.",
+    "topic": "Networking commands",
+    "tags": ["tracert", "icmp", "troubleshooting", "connectivity"]
+  },
+  {
+    "id": "net_007",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "Which of the following is a private IP address range per RFC 1918?",
+    "options": {
+      "A": "172.32.0.0 – 172.63.255.255",
+      "B": "192.168.0.0 – 192.168.255.255",
+      "C": "10.0.0.0 – 10.255.255.0",
+      "D": "100.64.0.0 – 100.127.255.255"
+    },
+    "correct": "B",
+    "explanation": "RFC 1918 private ranges: 10.0.0.0/8 (10.0.0.0–10.255.255.255), 172.16.0.0/12 (172.16.0.0–172.31.255.255), 192.168.0.0/16 (192.168.0.0–192.168.255.255). Option A is partly wrong (172.32+ is public). Option C misses the last octet. 100.64/10 is CGNAT — not RFC 1918.",
+    "correct": "B",
+    "explanation": "RFC 1918 defines three private ranges: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. 192.168.0.0–192.168.255.255 is the correct full range for the /16 block. These addresses are not routed on the public internet.",
+    "topic": "IP addressing",
+    "tags": ["ip-addressing", "rfc1918", "private-ip", "subnetting"]
+  },
+  {
+    "id": "net_008",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "Which command displays the current ARP cache on a Windows machine, mapping IP addresses to MAC addresses?",
+    "options": {
+      "A": "ipconfig /displaydns",
+      "B": "nslookup",
+      "C": "arp -a",
+      "D": "netstat -an"
+    },
+    "correct": "C",
+    "explanation": "arp -a shows the ARP (Address Resolution Protocol) cache — the local table mapping IPv4 addresses to MAC addresses. ipconfig /displaydns shows the DNS resolver cache. nslookup queries DNS servers. netstat -an shows active TCP/UDP connections and listening ports.",
+    "topic": "Networking commands",
+    "tags": ["arp", "mac-address", "networking-commands"]
+  },
+  {
+    "id": "net_009",
+    "section": "network",
+    "difficulty": "hard",
+    "question": "A user in VLAN 10 cannot reach a server in VLAN 20, even though both VLANs exist on the same switch. Why?",
+    "options": {
+      "A": "The switch needs a firmware update",
+      "B": "VLANs on the same switch communicate automatically",
+      "C": "Inter-VLAN routing requires a router or Layer 3 switch with IP routing enabled",
+      "D": "The server's NIC is faulty"
+    },
+    "correct": "C",
+    "explanation": "VLANs are separate broadcast domains. Traffic between VLANs must be routed at Layer 3 — either by a physical router (router-on-a-stick with trunk port) or a Layer 3 switch with IP routing and SVIs configured. A Layer 2 switch alone cannot forward traffic between VLANs.",
+    "topic": "VLANs / Routing",
+    "tags": ["vlan", "inter-vlan-routing", "layer3", "switch"]
+  },
+  {
+    "id": "net_010",
+    "section": "network",
+    "difficulty": "easy",
+    "question": "What does the command 'nslookup google.com' do?",
+    "options": {
+      "A": "Checks if google.com is reachable via ICMP",
+      "B": "Queries the configured DNS server to resolve google.com to an IP address",
+      "C": "Traces the network path to google.com",
+      "D": "Downloads the webpage at google.com"
+    },
+    "correct": "B",
+    "explanation": "nslookup is a DNS query tool. It asks the configured DNS server to resolve the given hostname to an IP. Useful for diagnosing DNS issues: if nslookup resolves but the browser fails, the problem is above DNS. ping checks ICMP reachability; tracert traces the path.",
+    "topic": "DNS",
+    "tags": ["dns", "nslookup", "name-resolution"]
+  },
+  {
+    "id": "net_011",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "Which port does DNS use by default?",
+    "options": {
+      "A": "25",
+      "B": "53",
+      "C": "80",
+      "D": "110"
+    },
+    "correct": "B",
+    "explanation": "DNS uses port 53 (both UDP for standard queries and TCP for zone transfers or responses >512 bytes). Port 25 is SMTP. Port 80 is HTTP. Port 110 is POP3.",
+    "topic": "Common ports",
+    "tags": ["dns", "ports", "udp", "tcp"]
+  },
+  {
+    "id": "net_012",
+    "section": "network",
+    "difficulty": "medium",
+    "question": "What is the loopback address in IPv4, and what is it used for?",
+    "options": {
+      "A": "0.0.0.0 — the default route placeholder",
+      "B": "255.255.255.255 — limited broadcast",
+      "C": "127.0.0.1 — used to test the local machine's TCP/IP stack without sending traffic to the network",
+      "D": "169.254.0.1 — the APIPA gateway"
+    },
+    "correct": "C",
+    "explanation": "127.0.0.1 (loopback) is a virtual address that points back to the local host. Pinging 127.0.0.1 tests whether the local IP stack is functional without any network involvement. The entire 127.0.0.0/8 range is reserved for loopback, but 127.0.0.1 is the standard address used.",
+    "topic": "IP addressing",
+    "tags": ["loopback", "ipv4", "troubleshooting"]
+  },
+  {
+    "id": "net_013",
+    "section": "network",
+    "difficulty": "hard",
+    "question": "A user reports intermittent connectivity — browsing works for a few minutes then stops until they reconnect. Which command would best help identify whether the default gateway is consistently reachable?",
+    "options": {
+      "A": "ping -t [gateway IP]",
+      "B": "ipconfig /renew",
+      "C": "netstat -rn",
+      "D": "tracert [gateway IP]"
+    },
+    "correct": "A",
+    "explanation": "ping -t sends continuous ICMP echo requests until stopped (Ctrl+C). This lets you observe whether packet loss to the gateway correlates with the outage. ipconfig /renew refreshes DHCP but won't show intermittent loss. netstat -rn shows the routing table. tracert is a one-shot tool, not continuous.",
+    "topic": "Networking commands",
+    "tags": ["ping", "gateway", "intermittent", "troubleshooting"]
+  }
+]

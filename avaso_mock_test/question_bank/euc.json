@@ -1,0 +1,258 @@
+[
+  {
+    "id": "euc_001",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user's Windows 10 PC will not boot and shows a black screen with a blinking cursor. Which tool should you use first to attempt repair?",
+    "options": {
+      "A": "chkdsk /r",
+      "B": "sfc /scannow",
+      "C": "Startup Repair from Windows Recovery Environment",
+      "D": "DISM /Online /Cleanup-Image /RestoreHealth"
+    },
+    "correct": "C",
+    "explanation": "Startup Repair (available from WinRE via F8 or install media) is the first-line tool for boot failures. It automatically diagnoses and fixes issues like missing boot files. sfc and DISM require a running OS; chkdsk fixes filesystem errors but won't repair a broken BCD.",
+    "topic": "Boot troubleshooting",
+    "tags": ["boot", "winre", "startup-repair"]
+  },
+  {
+    "id": "euc_002",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user calls saying they forgot their Windows domain password. They are working remotely. What is the correct procedure?",
+    "options": {
+      "A": "Tell the user to use Safe Mode to reset it locally",
+      "B": "Reset the password in Active Directory Users and Computers and require change at next logon",
+      "C": "Delete and recreate the user's AD account",
+      "D": "Use the local Administrator account to reset the password"
+    },
+    "correct": "B",
+    "explanation": "Password resets for domain users are done in AD Users and Computers (or via PowerShell). 'User must change password at next logon' forces a new password on first login. Recreating the account would lose group memberships and profile data. Local Administrator can't reset domain passwords.",
+    "topic": "Active Directory",
+    "tags": ["ad", "password-reset", "domain"]
+  },
+  {
+    "id": "euc_003",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user receives the error 'Your account has been locked out' when trying to log in. After unlocking in AD, the account locks again immediately. What is the most likely cause?",
+    "options": {
+      "A": "The user has a virus on their PC",
+      "B": "A saved credential (e.g. mapped drive or cached password) is repeatedly authenticating with the old password",
+      "C": "The domain controller is down",
+      "D": "The user's roaming profile is corrupted"
+    },
+    "correct": "B",
+    "explanation": "Immediate re-lockout after unlock almost always means a service, scheduled task, or saved credential (Windows Credential Manager, mapped drive, mobile device) is hammering the DC with the old password. Check Credential Manager and any mapped drives configured under the account.",
+    "topic": "Active Directory",
+    "tags": ["ad", "account-lockout", "credential-manager"]
+  },
+  {
+    "id": "euc_004",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "Which command scans and repairs corrupted Windows system files, replacing them from a cached copy?",
+    "options": {
+      "A": "chkdsk /f",
+      "B": "dism /cleanup-image",
+      "C": "sfc /scannow",
+      "D": "bcdedit /repair"
+    },
+    "correct": "C",
+    "explanation": "sfc /scannow (System File Checker) scans all protected system files and replaces corrupted ones from %WinDir%\\System32\\dllcache. chkdsk checks the filesystem/disk integrity. DISM repairs the Windows image itself. bcdedit manages boot configuration — it has no /repair switch.",
+    "topic": "Windows tools",
+    "tags": ["sfc", "system-files", "windows-tools"]
+  },
+  {
+    "id": "euc_005",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user's Outlook stops receiving emails but can send. The mailbox is an Exchange Online (Office 365) account. What should you check first?",
+    "options": {
+      "A": "Delete and recreate the Outlook profile",
+      "B": "Check if the OST file has exceeded its size limit and run Compact Now",
+      "C": "Verify the Microsoft 365 service health dashboard for Exchange Online outages",
+      "D": "Run chkdsk on the drive containing the OST"
+    },
+    "correct": "C",
+    "explanation": "For cloud mailboxes, always check service health first (admin.microsoft.com → Service Health) before doing local troubleshooting. An Exchange Online outage would explain why sending still works (cached in Outbox) but receiving fails. Only escalate to local remediation after ruling out upstream issues.",
+    "topic": "Office 365 / Outlook",
+    "tags": ["outlook", "exchange-online", "o365", "service-health"]
+  },
+  {
+    "id": "euc_006",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "What is the difference between an OST file and a PST file in Outlook?",
+    "options": {
+      "A": "OST is for IMAP accounts; PST is for Exchange accounts",
+      "B": "OST is an offline cached copy of an Exchange/365 mailbox; PST is a standalone archive file",
+      "C": "OST files are encrypted; PST files are not",
+      "D": "They are identical — Microsoft uses both terms interchangeably"
+    },
+    "correct": "B",
+    "explanation": "An OST (Offline Storage Table) is a local cache of an Exchange/Microsoft 365 mailbox, synced from the server. A PST (Personal Storage Table) is an independent data file — used for archives or non-Exchange accounts. OST files cannot be moved to another profile; PST files are portable.",
+    "topic": "Office 365 / Outlook",
+    "tags": ["outlook", "ost", "pst", "exchange"]
+  },
+  {
+    "id": "euc_007",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A printer shows a queue of stuck jobs that won't print or delete. What is the quickest resolution?",
+    "options": {
+      "A": "Restart the PC",
+      "B": "Uninstall and reinstall the printer driver",
+      "C": "Stop the Print Spooler service, delete files in C:\\Windows\\System32\\spool\\PRINTERS, then restart the service",
+      "D": "Use Device Manager to disable and re-enable the printer"
+    },
+    "correct": "C",
+    "explanation": "Stuck print jobs live in the spooler folder. The correct fix is: net stop spooler → delete all files in %SystemRoot%\\System32\\spool\\PRINTERS → net start spooler. Restarting the PC also restarts the spooler but takes longer and may not clear corrupt spool files.",
+    "topic": "Printers",
+    "tags": ["printer", "spooler", "stuck-jobs"]
+  },
+  {
+    "id": "euc_008",
+    "section": "euc",
+    "difficulty": "hard",
+    "question": "A user receives a BSOD with stop code 0x0000007B. What does this indicate?",
+    "options": {
+      "A": "Kernel data inpage error — bad RAM or disk",
+      "B": "Inaccessible boot device — Windows cannot find the system drive at boot",
+      "C": "Page fault in nonpaged area — corrupt driver or bad memory",
+      "D": "System service exception — a system service threw an unhandled exception"
+    },
+    "correct": "B",
+    "explanation": "0x0000007B = INACCESSIBLE_BOOT_DEVICE. Windows found the boot partition but couldn't read it — typically caused by a missing/corrupt storage driver (e.g. after switching SATA mode from AHCI to IDE in BIOS), a corrupt BCD, or a failed disk. Check BIOS storage mode and run Startup Repair.",
+    "topic": "BSOD",
+    "tags": ["bsod", "stop-code", "boot", "ahci"]
+  },
+  {
+    "id": "euc_009",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user's Windows 10 machine fails to apply Group Policy updates. Which command forces an immediate GP refresh and waits for it to complete?",
+    "options": {
+      "A": "gpresult /r",
+      "B": "gpupdate /force",
+      "C": "secedit /refreshpolicy",
+      "D": "net group /domain"
+    },
+    "correct": "B",
+    "explanation": "gpupdate /force reapplies all Group Policy settings regardless of whether they changed. gpresult /r is a reporting tool that shows applied policies — it doesn't refresh them. secedit is an older command that predates gpupdate. Some policy changes still require a logoff or reboot.",
+    "topic": "Group Policy",
+    "tags": ["gpo", "gpupdate", "group-policy"]
+  },
+  {
+    "id": "euc_010",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "BitLocker is enabled on a laptop. The user forgot their PIN and does not have the recovery key. What should you do?",
+    "options": {
+      "A": "Boot from a USB and use a third-party tool to bypass BitLocker",
+      "B": "Retrieve the BitLocker recovery key from Azure AD or Active Directory",
+      "C": "Reinstall Windows — the drive cannot be recovered without the key",
+      "D": "Reset the BIOS password to unlock the drive"
+    },
+    "correct": "B",
+    "explanation": "BitLocker recovery keys are stored in Azure AD (for cloud-joined devices) or on-premises AD (for domain-joined devices). Admins can retrieve the 48-digit key from the computer object in AD or from the Azure portal. Without the key, the drive data is cryptographically inaccessible.",
+    "topic": "BitLocker",
+    "tags": ["bitlocker", "encryption", "recovery-key", "azure-ad"]
+  },
+  {
+    "id": "euc_011",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user reports their Windows profile is corrupted — they log in to a temporary profile. Which registry key stores user profile mappings?",
+    "options": {
+      "A": "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList",
+      "B": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
+      "C": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\ProfSvc",
+      "D": "HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\System"
+    },
+    "correct": "A",
+    "explanation": "ProfileList in HKLM maps SIDs to profile paths. A corrupted entry (duplicate SID with .bak suffix, or ProfileImagePath pointing to a non-existent folder) causes Windows to create a temporary profile. The fix is to delete the corrupt key and let Windows rebuild the profile, or restore from a backup profile folder.",
+    "topic": "User profiles",
+    "tags": ["profile", "registry", "temporary-profile"]
+  },
+  {
+    "id": "euc_012",
+    "section": "euc",
+    "difficulty": "hard",
+    "question": "A user cannot install software because they lack admin rights. Company policy prevents giving them full admin. What is the most appropriate solution?",
+    "options": {
+      "A": "Give the user local admin rights temporarily",
+      "B": "Add the user to the local Power Users group",
+      "C": "Use a software deployment tool (e.g. SCCM/Intune) to push the install with elevated rights",
+      "D": "Ask the user to right-click and run as a different admin user"
+    },
+    "correct": "C",
+    "explanation": "The enterprise-correct answer is to deploy software centrally via SCCM/Intune/PDQ, which runs installations in the SYSTEM context. This preserves least-privilege policy. Power Users is deprecated and still grants too much. 'Run as' with a shared admin credential violates least-privilege and audit requirements.",
+    "topic": "Software management",
+    "tags": ["sccm", "intune", "least-privilege", "software-deployment"]
+  },
+  {
+    "id": "euc_013",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "Which Windows command checks and repairs disk filesystem errors, and must be scheduled to run at next reboot for the system drive?",
+    "options": {
+      "A": "sfc /scannow",
+      "B": "diskpart",
+      "C": "chkdsk C: /f /r",
+      "D": "format C: /fs:NTFS"
+    },
+    "correct": "C",
+    "explanation": "chkdsk /f fixes filesystem errors; /r also locates bad sectors and recovers readable data. Because the C: drive is locked by the running OS, chkdsk schedules itself to run before Windows loads on the next reboot. sfc repairs system files, not filesystem structure. diskpart manages partitions.",
+    "topic": "Windows tools",
+    "tags": ["chkdsk", "disk", "filesystem"]
+  },
+  {
+    "id": "euc_014",
+    "section": "euc",
+    "difficulty": "easy",
+    "question": "A user shares a mailbox in Outlook and needs to send emails 'on behalf of' the shared mailbox. What permission is required?",
+    "options": {
+      "A": "Full Access",
+      "B": "Send As",
+      "C": "Send on Behalf",
+      "D": "Read and Manage"
+    },
+    "correct": "C",
+    "explanation": "'Send on Behalf' lets the user send mail where the From field shows 'User on behalf of SharedMailbox'. 'Send As' makes it appear the email came directly from the shared mailbox (no 'on behalf of' visible). Full Access grants mailbox access but not send rights. The correct permission depends on audit/visibility requirements.",
+    "topic": "Office 365 / Outlook",
+    "tags": ["outlook", "shared-mailbox", "send-on-behalf", "exchange"]
+  },
+  {
+    "id": "euc_015",
+    "section": "euc",
+    "difficulty": "hard",
+    "question": "DISM /Online /Cleanup-Image /RestoreHealth fails with 'Source files could not be found.' What does this mean and how do you fix it?",
+    "options": {
+      "A": "The Windows image is beyond repair — reinstall Windows",
+      "B": "DISM needs internet access to Windows Update; enable it and retry",
+      "C": "Provide a local source with /Source:wim:\\install.wim:1 pointing to a mounted Windows ISO",
+      "D": "Run sfc /scannow first to build the source cache"
+    },
+    "correct": "C",
+    "explanation": "DISM /RestoreHealth normally pulls repair files from Windows Update. If WU is blocked or the image is too corrupt, you must point it to a healthy source: mount a Windows ISO and use /Source:wim:D:\\sources\\install.wim:1 (index 1 = the edition). /LimitAccess prevents DISM from falling back to WU when a local source is specified.",
+    "topic": "Windows tools",
+    "tags": ["dism", "windows-image", "repair", "iso"]
+  },
+  {
+    "id": "euc_016",
+    "section": "euc",
+    "difficulty": "medium",
+    "question": "A user's PC shows 'The trust relationship between this workstation and the primary domain failed.' What is the fastest fix without reimaging?",
+    "options": {
+      "A": "Rejoin the computer to the domain after resetting the machine account in AD",
+      "B": "Run sfc /scannow",
+      "C": "Reset the local administrator password",
+      "D": "Delete the user profile and log in again"
+    },
+    "correct": "A",
+    "explanation": "This error means the computer account's password in AD is out of sync with the local machine. Fix: log in with a local admin account, run 'Test-ComputerSecureChannel -Repair -Credential (Get-Credential)' in PowerShell (or disjoin and rejoin the domain). Alternatively, reset the computer account in AD then run netdom resetpwd.",
+    "topic": "Active Directory",
+    "tags": ["ad", "domain-trust", "computer-account", "secure-channel"]
+  }
+]

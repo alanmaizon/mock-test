@@ -1,0 +1,130 @@
+[
+  {
+    "id": "wifi_001",
+    "section": "wifi",
+    "difficulty": "easy",
+    "question": "A user complains that Wi-Fi is slow when many people are in the office, but fast at home. The office uses 2.4 GHz. What is the most likely cause?",
+    "options": {
+      "A": "The user's laptop NIC is faulty",
+      "B": "2.4 GHz band congestion from too many nearby devices and overlapping channels",
+      "C": "The router needs a firmware update",
+      "D": "WPA2 encryption slows down the signal in crowded areas"
+    },
+    "correct": "B",
+    "explanation": "2.4 GHz has only 3 non-overlapping channels (1, 6, 11) and is shared by many devices (microwaves, Bluetooth, neighboring APs). In dense environments, congestion degrades performance. The fix is to move devices to 5 GHz (more channels, less interference) or ensure APs are set to non-overlapping channels.",
+    "topic": "2.4 GHz vs 5 GHz",
+    "tags": ["2.4ghz", "congestion", "channels", "interference"]
+  },
+  {
+    "id": "wifi_002",
+    "section": "wifi",
+    "difficulty": "easy",
+    "question": "What are the three non-overlapping channels for 2.4 GHz Wi-Fi?",
+    "options": {
+      "A": "1, 2, 3",
+      "B": "1, 6, 11",
+      "C": "1, 7, 13",
+      "D": "6, 9, 12"
+    },
+    "correct": "B",
+    "explanation": "In the 2.4 GHz band (802.11b/g/n), channels are 5 MHz apart but 22 MHz wide, so only channels 1, 6, and 11 are truly non-overlapping. Using other channels causes co-channel interference with adjacent APs. All 3 APs in a coverage area should each use one of these three channels.",
+    "topic": "Wi-Fi channels",
+    "tags": ["2.4ghz", "channels", "interference", "ap-placement"]
+  },
+  {
+    "id": "wifi_003",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "Which Wi-Fi security protocol is considered obsolete and should never be used?",
+    "options": {
+      "A": "WPA3-Personal",
+      "B": "WPA2-Enterprise",
+      "C": "WEP",
+      "D": "WPA2-Personal (AES)"
+    },
+    "correct": "C",
+    "explanation": "WEP (Wired Equivalent Privacy) uses RC4 with static keys and has been cryptographically broken since 2001. It can be cracked in minutes with freely available tools. WPA2 (AES/CCMP) remains acceptable; WPA3 is the current standard. WEP should be disabled on any managed network.",
+    "topic": "Wi-Fi security",
+    "tags": ["wep", "wpa2", "wpa3", "security", "encryption"]
+  },
+  {
+    "id": "wifi_004",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "A laptop shows 'Connected' to Wi-Fi but cannot browse the internet or reach internal servers. What is the first step in diagnosing this?",
+    "options": {
+      "A": "Reinstall the Wi-Fi driver",
+      "B": "Check if the laptop obtained a valid IP (not APIPA) and can ping the default gateway",
+      "C": "Contact the ISP",
+      "D": "Toggle Airplane mode on and off"
+    },
+    "correct": "B",
+    "explanation": "'Connected but no internet' diagnostic flow: (1) ipconfig — check for a valid IP (not 169.254.x.x); (2) ping default gateway — tests Layer 3 to the router; (3) ping 8.8.8.8 — tests WAN connectivity; (4) nslookup google.com — tests DNS. Each step isolates the failure point. Driver reinstall is a last resort.",
+    "topic": "Wi-Fi troubleshooting",
+    "tags": ["connected-no-internet", "troubleshooting", "gateway", "dns"]
+  },
+  {
+    "id": "wifi_005",
+    "section": "wifi",
+    "difficulty": "easy",
+    "question": "Which 802.11 standard introduced MU-MIMO and is marketed as 'Wi-Fi 5'?",
+    "options": {
+      "A": "802.11n (Wi-Fi 4)",
+      "B": "802.11ac (Wi-Fi 5)",
+      "C": "802.11ax (Wi-Fi 6)",
+      "D": "802.11g"
+    },
+    "correct": "B",
+    "explanation": "802.11ac (Wi-Fi 5) operates on 5 GHz only, introduced MU-MIMO (Multi-User MIMO) allowing multiple clients simultaneously, and supports up to 3.5 Gbps theoretical. Wi-Fi 4 (802.11n) was the first to support both 2.4/5 GHz. Wi-Fi 6 (802.11ax) adds OFDMA and improved MU-MIMO for dense environments.",
+    "topic": "802.11 standards",
+    "tags": ["802.11ac", "wifi5", "mu-mimo", "standards"]
+  },
+  {
+    "id": "wifi_006",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "A user in a far corner of the office has a very weak Wi-Fi signal (1 bar). What is the best long-term fix?",
+    "options": {
+      "A": "Tell the user to move closer to the AP",
+      "B": "Increase the AP transmit power to maximum",
+      "C": "Install an additional AP or a wireless range extender closer to the user's area",
+      "D": "Switch the user to 2.4 GHz to improve range"
+    },
+    "correct": "C",
+    "explanation": "Adding an AP (or a mesh node) in the coverage gap is the correct enterprise solution. Maxing out transmit power can cause co-channel interference with neighboring APs and doesn't help the client's uplink (the client's radio power is fixed). Switching to 2.4 GHz improves range slightly but reduces throughput — a band-aid, not a fix.",
+    "topic": "AP placement",
+    "tags": ["signal", "ap-placement", "coverage", "range-extender"]
+  },
+  {
+    "id": "wifi_007",
+    "section": "wifi",
+    "difficulty": "hard",
+    "question": "What advantage does WPA3 provide over WPA2 for open (public) Wi-Fi networks?",
+    "options": {
+      "A": "Faster connection speeds via OFDMA",
+      "B": "OWE (Opportunistic Wireless Encryption) — encrypts traffic even without a password",
+      "C": "Blocks all evil twin attacks using certificate pinning",
+      "D": "Replaces the pre-shared key with a SIM card authentication"
+    },
+    "correct": "B",
+    "explanation": "WPA3 introduces OWE (Enhanced Open) for public networks — each connection uses unique encryption keys even without a password, preventing passive eavesdropping. WPA2 open networks transmit all data in cleartext. OFDMA is a Wi-Fi 6 (802.11ax) PHY feature, not a WPA3 security feature.",
+    "topic": "Wi-Fi security",
+    "tags": ["wpa3", "owe", "open-wifi", "encryption"]
+  },
+  {
+    "id": "wifi_008",
+    "section": "wifi",
+    "difficulty": "medium",
+    "question": "A company has both an 'Employees' SSID and a 'Guest' SSID on the same physical access point. How is guest traffic kept separate from internal traffic?",
+    "options": {
+      "A": "The AP uses different MAC addresses for each SSID",
+      "B": "Each SSID is mapped to a separate VLAN, and the switch enforces the separation",
+      "C": "Guest users receive a different Wi-Fi channel",
+      "D": "WPA3 automatically segments guest traffic"
+    },
+    "correct": "B",
+    "explanation": "Multiple SSIDs on one AP are isolated via VLAN tagging. The 'Employees' SSID maps to the internal VLAN; 'Guest' maps to a guest VLAN that is routed only to the internet (no access to internal resources). The switch trunk port carries both tagged VLANs to the AP. Channel or MAC separation alone provides no security.",
+    "topic": "Wi-Fi security",
+    "tags": ["ssid", "vlan", "guest-network", "segmentation"]
+  }
+]
