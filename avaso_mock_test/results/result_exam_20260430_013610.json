@@ -1,0 +1,393 @@
+{
+  "mode": "exam",
+  "section_filter": null,
+  "timestamp": "20260430_013610",
+  "score_pct": 90.0,
+  "correct": 36,
+  "total": 40,
+  "duration_seconds": 3473,
+  "section_scores": {
+    "euc": {
+      "correct": 10,
+      "total": 12
+    },
+    "network": {
+      "correct": 9,
+      "total": 10
+    },
+    "wifi": {
+      "correct": 6,
+      "total": 6
+    },
+    "server": {
+      "correct": 8,
+      "total": 8
+    },
+    "english": {
+      "correct": 3,
+      "total": 4
+    }
+  },
+  "answers": [
+    {
+      "id": "euc_010",
+      "section": "euc",
+      "topic": "BitLocker",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 180.0
+    },
+    {
+      "id": "euc_015",
+      "section": "euc",
+      "topic": "Windows tools",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 58.9
+    },
+    {
+      "id": "euc_020",
+      "section": "euc",
+      "topic": "Device Manager",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 191.7
+    },
+    {
+      "id": "euc_008",
+      "section": "euc",
+      "topic": "BSOD",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 32.4
+    },
+    {
+      "id": "euc_013",
+      "section": "euc",
+      "topic": "Windows tools",
+      "correct": "C",
+      "chosen": "A",
+      "is_correct": false,
+      "elapsed_seconds": 17.5
+    },
+    {
+      "id": "euc_022",
+      "section": "euc",
+      "topic": "Windows Update",
+      "correct": "D",
+      "chosen": "B",
+      "is_correct": false,
+      "elapsed_seconds": 37.5
+    },
+    {
+      "id": "euc_024",
+      "section": "euc",
+      "topic": "Disk management",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 124.1
+    },
+    {
+      "id": "euc_012",
+      "section": "euc",
+      "topic": "Software management",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 18.2
+    },
+    {
+      "id": "euc_011",
+      "section": "euc",
+      "topic": "User profiles",
+      "correct": "A",
+      "chosen": "A",
+      "is_correct": true,
+      "elapsed_seconds": 20.3
+    },
+    {
+      "id": "euc_014",
+      "section": "euc",
+      "topic": "Office 365 / Outlook",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 4.5
+    },
+    {
+      "id": "euc_004",
+      "section": "euc",
+      "topic": "Windows tools",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 3.6
+    },
+    {
+      "id": "euc_031",
+      "section": "euc",
+      "topic": "Office 365 / Outlook",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 24.1
+    },
+    {
+      "id": "net_002",
+      "section": "network",
+      "topic": "OSI model",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 14.7
+    },
+    {
+      "id": "net_016",
+      "section": "network",
+      "topic": "NAT",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 83.7
+    },
+    {
+      "id": "net_007",
+      "section": "network",
+      "topic": "IP addressing",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 14.1
+    },
+    {
+      "id": "net_025",
+      "section": "network",
+      "topic": "IPv6",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 92.7
+    },
+    {
+      "id": "net_012",
+      "section": "network",
+      "topic": "IP addressing",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 26.0
+    },
+    {
+      "id": "net_020",
+      "section": "network",
+      "topic": "Ethernet / switching",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 13.4
+    },
+    {
+      "id": "net_013",
+      "section": "network",
+      "topic": "Networking commands",
+      "correct": "A",
+      "chosen": "B",
+      "is_correct": false,
+      "elapsed_seconds": 1550.6
+    },
+    {
+      "id": "net_005",
+      "section": "network",
+      "topic": "TCP vs UDP",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 18.8
+    },
+    {
+      "id": "net_026",
+      "section": "network",
+      "topic": "Networking commands",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 12.4
+    },
+    {
+      "id": "net_023",
+      "section": "network",
+      "topic": "IP addressing",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 121.5
+    },
+    {
+      "id": "wifi_008",
+      "section": "wifi",
+      "topic": "Wi-Fi security",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 32.3
+    },
+    {
+      "id": "wifi_005",
+      "section": "wifi",
+      "topic": "802.11 standards",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 6.9
+    },
+    {
+      "id": "wifi_009",
+      "section": "wifi",
+      "topic": "2.4 GHz vs 5 GHz",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 8.8
+    },
+    {
+      "id": "wifi_011",
+      "section": "wifi",
+      "topic": "Wi-Fi troubleshooting",
+      "correct": "D",
+      "chosen": "D",
+      "is_correct": true,
+      "elapsed_seconds": 56.9
+    },
+    {
+      "id": "wifi_003",
+      "section": "wifi",
+      "topic": "Wi-Fi security",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 10.7
+    },
+    {
+      "id": "wifi_010",
+      "section": "wifi",
+      "topic": "Wi-Fi channels",
+      "correct": "A",
+      "chosen": "A",
+      "is_correct": true,
+      "elapsed_seconds": 97.2
+    },
+    {
+      "id": "srv_018",
+      "section": "server",
+      "topic": "Active Directory",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 339.0
+    },
+    {
+      "id": "srv_012",
+      "section": "server",
+      "topic": "DNS records",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 14.7
+    },
+    {
+      "id": "srv_001",
+      "section": "server",
+      "topic": "RAID",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 20.4
+    },
+    {
+      "id": "srv_004",
+      "section": "server",
+      "topic": "Group Policy",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 98.6
+    },
+    {
+      "id": "srv_006",
+      "section": "server",
+      "topic": "Backup types",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 11.5
+    },
+    {
+      "id": "srv_013",
+      "section": "server",
+      "topic": "Active Directory",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 18.9
+    },
+    {
+      "id": "srv_020",
+      "section": "server",
+      "topic": "Server monitoring",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 28.8
+    },
+    {
+      "id": "srv_011",
+      "section": "server",
+      "topic": "Windows Server roles",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 6.9
+    },
+    {
+      "id": "eng_005",
+      "section": "english",
+      "topic": "Grammar \u2014 commonly confused words",
+      "correct": "D",
+      "chosen": "D",
+      "is_correct": true,
+      "elapsed_seconds": 23.2
+    },
+    {
+      "id": "eng_009",
+      "section": "english",
+      "topic": "Professional writing",
+      "correct": "C",
+      "chosen": "C",
+      "is_correct": true,
+      "elapsed_seconds": 12.2
+    },
+    {
+      "id": "eng_003",
+      "section": "english",
+      "topic": "Professional writing",
+      "correct": "B",
+      "chosen": "B",
+      "is_correct": true,
+      "elapsed_seconds": 8.7
+    },
+    {
+      "id": "eng_011",
+      "section": "english",
+      "topic": "Professional writing",
+      "correct": "C",
+      "chosen": "D",
+      "is_correct": false,
+      "elapsed_seconds": 10.7
+    }
+  ]
+}
